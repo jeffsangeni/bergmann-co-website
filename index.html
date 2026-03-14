@@ -123,7 +123,6 @@
     </div>
     <div class="hero__container">
       <div class="hero__badge anim-fade-up">
-        <span class="hero__badge-dot"></span>
         Innovative Kapital- & Finanzierungslösungen
       </div>
       <h1 class="hero__title anim-fade-up" data-delay="0.1">
@@ -172,12 +171,15 @@
       <div class="features__grid">
         <div class="feature-card anim-fade-up" data-delay="0">
           <div class="feature-card__anim">
+            <!-- Alternativen: branching paths diverging from one source -->
             <svg class="anim-icon" viewBox="0 0 64 64" fill="none">
-              <rect class="anim-layer anim-layer--3" x="14" y="12" width="36" height="6" rx="3" fill="currentColor" opacity="0.2"/>
-              <rect class="anim-layer anim-layer--2" x="10" y="22" width="44" height="6" rx="3" fill="currentColor" opacity="0.12"/>
-              <rect class="anim-layer anim-layer--1" x="6" y="32" width="52" height="6" rx="3" fill="currentColor" opacity="0.06"/>
-              <path class="anim-arrow" d="M32 44 L32 54" stroke="currentColor" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
-              <path class="anim-arrow" d="M27 50 L32 55 L37 50" stroke="currentColor" stroke-width="1.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle class="fi-source" cx="32" cy="52" r="3" fill="currentColor" opacity="0.25"/>
+              <path class="fi-path fi-path--1" d="M32 49 L32 32 L18 14" stroke="currentColor" stroke-width="1.2" opacity="0.2" fill="none" stroke-linecap="round"/>
+              <path class="fi-path fi-path--2" d="M32 32 L32 14" stroke="currentColor" stroke-width="1.2" opacity="0.2" fill="none" stroke-linecap="round"/>
+              <path class="fi-path fi-path--3" d="M32 32 L46 14" stroke="currentColor" stroke-width="1.2" opacity="0.2" fill="none" stroke-linecap="round"/>
+              <circle class="fi-end fi-end--1" cx="18" cy="14" r="2.5" fill="currentColor" opacity="0.15"/>
+              <circle class="fi-end fi-end--2" cx="32" cy="14" r="2.5" fill="currentColor" opacity="0.15"/>
+              <circle class="fi-end fi-end--3" cx="46" cy="14" r="2.5" fill="currentColor" opacity="0.15"/>
             </svg>
           </div>
           <h3 class="feature-card__title">Alternativen zu traditionellen Finanzierungen</h3>
@@ -185,12 +187,16 @@
         </div>
         <div class="feature-card anim-fade-up" data-delay="0.1">
           <div class="feature-card__anim">
+            <!-- Strukturierte Produkte: interlocking grid assembling -->
             <svg class="anim-icon" viewBox="0 0 64 64" fill="none">
-              <rect class="anim-block anim-block--1" x="8" y="8" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.2" opacity="0.15" fill="none"/>
-              <rect class="anim-block anim-block--2" x="36" y="8" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.2" opacity="0.15" fill="none"/>
-              <rect class="anim-block anim-block--3" x="8" y="36" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.2" opacity="0.15" fill="none"/>
-              <rect class="anim-block anim-block--4" x="36" y="36" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.2" opacity="0.15" fill="none"/>
-              <circle class="anim-center-dot" cx="32" cy="32" r="3" fill="currentColor" opacity="0.15"/>
+              <rect class="fi-tile fi-tile--1" x="6" y="6" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.2" opacity="0.12" fill="currentColor" fill-opacity="0.03"/>
+              <rect class="fi-tile fi-tile--2" x="28" y="6" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.2" opacity="0.12" fill="currentColor" fill-opacity="0.03"/>
+              <rect class="fi-tile fi-tile--3" x="6" y="28" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.2" opacity="0.12" fill="currentColor" fill-opacity="0.03"/>
+              <rect class="fi-tile fi-tile--4" x="28" y="28" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.2" opacity="0.12" fill="currentColor" fill-opacity="0.03"/>
+              <rect class="fi-tile fi-tile--5" x="50" y="17" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1" opacity="0.08" fill="none"/>
+              <line class="fi-conn fi-conn--1" x1="24" y1="15" x2="28" y2="15" stroke="currentColor" stroke-width="0.8" opacity="0.1"/>
+              <line class="fi-conn fi-conn--2" x1="15" y1="24" x2="15" y2="28" stroke="currentColor" stroke-width="0.8" opacity="0.1"/>
+              <line class="fi-conn fi-conn--3" x1="37" y1="24" x2="37" y2="28" stroke="currentColor" stroke-width="0.8" opacity="0.1"/>
             </svg>
           </div>
           <h3 class="feature-card__title">Bedeutung strukturierter Produkte</h3>
@@ -198,9 +204,13 @@
         </div>
         <div class="feature-card anim-fade-up" data-delay="0.2">
           <div class="feature-card__anim">
+            <!-- Rückgang: declining line with dot sliding down -->
             <svg class="anim-icon" viewBox="0 0 64 64" fill="none">
-              <path class="anim-wave" d="M6 32 Q16 16 26 32 Q36 48 46 32 Q56 16 58 32" stroke="currentColor" stroke-width="1.5" opacity="0.2" fill="none" stroke-linecap="round"/>
-              <circle class="anim-wave-dot" cx="32" cy="32" r="3" fill="currentColor" opacity="0.2"/>
+              <path class="fi-decline-bg" d="M8 16 L56 48" stroke="currentColor" stroke-width="0.8" opacity="0.06" fill="none"/>
+              <path class="fi-decline" d="M8 16 L56 48" stroke="currentColor" stroke-width="1.5" opacity="0.2" fill="none" stroke-linecap="round"/>
+              <circle class="fi-decline-dot" cx="8" cy="16" r="3" fill="currentColor" opacity="0.3"/>
+              <line class="fi-base" x1="8" y1="54" x2="56" y2="54" stroke="currentColor" stroke-width="0.8" opacity="0.06"/>
+              <path class="fi-area" d="M8 16 L56 48 L56 54 L8 54 Z" fill="currentColor" opacity="0.02"/>
             </svg>
           </div>
           <h3 class="feature-card__title">Rückgang bei klassischen Finanzierungen</h3>
@@ -221,7 +231,7 @@
 
       <div class="services__cards">
         <div class="service-card service-card--on-dark anim-fade-up">
-          <div class="service-card__border-anim"></div>
+          <div class="service-card__glow"><div class="service-card__glow-inner"></div></div>
           <div class="service-card__inner">
             <div class="service-card__tag">Wachstumskapital</div>
             <h3 class="service-card__title">Debt Capital Markets</h3>
@@ -248,7 +258,7 @@
         </div>
 
         <div class="service-card service-card--on-dark anim-fade-up" data-delay="0.15">
-          <div class="service-card__border-anim"></div>
+          <div class="service-card__glow"><div class="service-card__glow-inner"></div></div>
           <div class="service-card__inner">
             <div class="service-card__tag">Mittelstand & Real Estate</div>
             <h3 class="service-card__title">Leveraged Finance &<br>Loan Solutions</h3>
@@ -336,59 +346,85 @@
         <p class="section-desc">Von der dynamischen Immobilienbranche über den lebhaften Mittelstand bis hin zu anspruchsvollen Hochverzinslichen Anleihen.</p>
       </div>
       <div class="industries__grid">
+        <!-- Mittelstand: Rising bar chart with smooth growth animation -->
         <div class="industry-card anim-fade-up" data-delay="0">
           <div class="industry-card__anim-wrap">
             <svg class="industry-anim" viewBox="0 0 100 80" fill="none">
-              <rect class="ind-bar ind-bar--1" x="10" y="50" width="14" height="25" rx="2" fill="currentColor" opacity="0.08"/>
-              <rect class="ind-bar ind-bar--2" x="30" y="35" width="14" height="40" rx="2" fill="currentColor" opacity="0.12"/>
-              <rect class="ind-bar ind-bar--3" x="50" y="20" width="14" height="55" rx="2" fill="currentColor" opacity="0.18"/>
-              <rect class="ind-bar ind-bar--4" x="70" y="8" width="14" height="67" rx="2" fill="currentColor" opacity="0.24"/>
-              <path class="ind-trend" d="M17 46 L37 32 L57 18 L77 6" stroke="currentColor" stroke-width="1.5" opacity="0.25" fill="none" stroke-linecap="round"/>
+              <line x1="8" y1="75" x2="92" y2="75" stroke="currentColor" stroke-width="0.5" opacity="0.08"/>
+              <rect class="ind-grow ind-grow--1" x="14" y="75" width="12" height="0" rx="2" fill="currentColor" opacity="0.1"/>
+              <rect class="ind-grow ind-grow--2" x="32" y="75" width="12" height="0" rx="2" fill="currentColor" opacity="0.15"/>
+              <rect class="ind-grow ind-grow--3" x="50" y="75" width="12" height="0" rx="2" fill="currentColor" opacity="0.2"/>
+              <rect class="ind-grow ind-grow--4" x="68" y="75" width="12" height="0" rx="2" fill="currentColor" opacity="0.28"/>
+              <path class="ind-grow-line" d="M20 60 L38 45 L56 30 L74 12" stroke="currentColor" stroke-width="1.2" opacity="0" fill="none" stroke-linecap="round" stroke-dasharray="3 6"/>
+              <circle class="ind-grow-dot" cx="74" cy="12" r="2.5" fill="currentColor" opacity="0"/>
             </svg>
           </div>
           <h3 class="industry-card__title">Mittelstand</h3>
           <p class="industry-card__text">Kapitalbeschaffungs- und Liquiditätslösungen für mittelständische Unternehmen zur Förderung ihres Wachstums.</p>
         </div>
+        <!-- Real Estate: Buildings rising from baseline -->
         <div class="industry-card anim-fade-up" data-delay="0.1">
           <div class="industry-card__anim-wrap">
             <svg class="industry-anim" viewBox="0 0 100 80" fill="none">
-              <rect class="ind-building ind-building--1" x="10" y="30" width="28" height="45" rx="2" stroke="currentColor" stroke-width="1.2" opacity="0.15" fill="none"/>
-              <rect class="ind-building ind-building--2" x="42" y="12" width="20" height="63" rx="2" stroke="currentColor" stroke-width="1.2" opacity="0.2" fill="none"/>
-              <rect class="ind-building ind-building--3" x="66" y="38" width="18" height="37" rx="2" stroke="currentColor" stroke-width="1.2" opacity="0.12" fill="none"/>
-              <rect class="ind-window" x="17" y="38" width="6" height="6" rx="1" fill="currentColor" opacity="0.06"/>
-              <rect class="ind-window" x="26" y="38" width="6" height="6" rx="1" fill="currentColor" opacity="0.06"/>
-              <rect class="ind-window" x="17" y="50" width="6" height="6" rx="1" fill="currentColor" opacity="0.06"/>
-              <rect class="ind-window" x="26" y="50" width="6" height="6" rx="1" fill="currentColor" opacity="0.06"/>
-              <rect class="ind-window" x="49" y="20" width="6" height="6" rx="1" fill="currentColor" opacity="0.06"/>
-              <rect class="ind-window" x="49" y="32" width="6" height="6" rx="1" fill="currentColor" opacity="0.06"/>
-              <rect class="ind-window" x="49" y="44" width="6" height="6" rx="1" fill="currentColor" opacity="0.06"/>
+              <line x1="5" y1="75" x2="95" y2="75" stroke="currentColor" stroke-width="0.5" opacity="0.08"/>
+              <rect class="ind-bld ind-bld--1" x="12" y="75" width="20" height="0" rx="1.5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.12"/>
+              <rect class="ind-bld ind-bld--2" x="36" y="75" width="16" height="0" rx="1.5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.18"/>
+              <rect class="ind-bld ind-bld--3" x="56" y="75" width="22" height="0" rx="1.5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.14"/>
+              <rect class="ind-bld ind-bld--4" x="82" y="75" width="10" height="0" rx="1.5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.1"/>
+              <!-- Windows appear after buildings rise -->
+              <g class="ind-wins">
+                <rect x="16" y="50" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="24" y="50" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="16" y="58" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="24" y="58" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="40" y="28" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="40" y="36" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="40" y="44" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="48" y="28" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="60" y="40" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="68" y="40" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="60" y="48" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+                <rect x="68" y="48" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
+              </g>
             </svg>
           </div>
           <h3 class="industry-card__title">Real Estate</h3>
           <p class="industry-card__text">Spezialisierung auf komplexe Immobilientransaktionen und -finanzierungen für nachhaltiges Wachstum.</p>
         </div>
+        <!-- High Yield: Yield curve with oscillating line -->
         <div class="industry-card anim-fade-up" data-delay="0.2">
           <div class="industry-card__anim-wrap">
             <svg class="industry-anim" viewBox="0 0 100 80" fill="none">
-              <path class="ind-yield ind-yield--bg" d="M5 55 Q20 55 30 40 Q40 22 50 45 Q55 55 60 42 Q70 18 80 35 Q90 48 95 40" stroke="currentColor" stroke-width="1" opacity="0.06" fill="none"/>
-              <path class="ind-yield ind-yield--main" d="M5 55 Q20 55 30 40 Q40 22 50 45 Q55 55 60 42 Q70 18 80 35 Q90 48 95 40" stroke="currentColor" stroke-width="1.5" opacity="0.25" fill="none" stroke-linecap="round"/>
+              <line x1="5" y1="75" x2="95" y2="75" stroke="currentColor" stroke-width="0.5" opacity="0.06"/>
+              <line x1="5" y1="55" x2="95" y2="55" stroke="currentColor" stroke-width="0.5" opacity="0.03" stroke-dasharray="2 4"/>
+              <line x1="5" y1="35" x2="95" y2="35" stroke="currentColor" stroke-width="0.5" opacity="0.03" stroke-dasharray="2 4"/>
+              <path class="ind-curve-bg" d="M5 55 Q15 55 25 42 Q35 25 45 48 Q50 58 55 44 Q65 20 75 36 Q85 50 95 42" stroke="currentColor" stroke-width="0.8" opacity="0.05" fill="none"/>
+              <path class="ind-curve" d="M5 55 Q15 55 25 42 Q35 25 45 48 Q50 58 55 44 Q65 20 75 36 Q85 50 95 42" stroke="currentColor" stroke-width="1.5" opacity="0.25" fill="none" stroke-linecap="round"/>
+              <path class="ind-curve-area" d="M5 55 Q15 55 25 42 Q35 25 45 48 Q50 58 55 44 Q65 20 75 36 Q85 50 95 42 L95 75 L5 75 Z" fill="currentColor" opacity="0"/>
+              <circle class="ind-curve-dot" cx="5" cy="55" r="2.5" fill="currentColor" opacity="0"/>
             </svg>
           </div>
           <h3 class="industry-card__title">High Yield</h3>
           <p class="industry-card__text">Fokussierung auf High-Yield-Anleihen und Corporate Bonds als Teil einer strategischen Finanzierungsplanung.</p>
         </div>
+        <!-- Emissionen: Network nodes with pulsing connections -->
         <div class="industry-card anim-fade-up" data-delay="0.3">
           <div class="industry-card__anim-wrap">
             <svg class="industry-anim" viewBox="0 0 100 80" fill="none">
-              <circle class="ind-node ind-node--center" cx="50" cy="40" r="8" stroke="currentColor" stroke-width="1.2" opacity="0.18" fill="currentColor" fill-opacity="0.04"/>
-              <circle class="ind-node ind-node--1" cx="18" cy="18" r="5" stroke="currentColor" stroke-width="1" opacity="0.12" fill="none"/>
-              <circle class="ind-node ind-node--2" cx="82" cy="18" r="5" stroke="currentColor" stroke-width="1" opacity="0.12" fill="none"/>
-              <circle class="ind-node ind-node--3" cx="18" cy="62" r="5" stroke="currentColor" stroke-width="1" opacity="0.12" fill="none"/>
-              <circle class="ind-node ind-node--4" cx="82" cy="62" r="5" stroke="currentColor" stroke-width="1" opacity="0.12" fill="none"/>
-              <line class="ind-link ind-link--1" x1="23" y1="21" x2="43" y2="35" stroke="currentColor" stroke-width="0.8" opacity="0.08"/>
-              <line class="ind-link ind-link--2" x1="77" y1="21" x2="57" y2="35" stroke="currentColor" stroke-width="0.8" opacity="0.08"/>
-              <line class="ind-link ind-link--3" x1="23" y1="59" x2="43" y2="45" stroke="currentColor" stroke-width="0.8" opacity="0.08"/>
-              <line class="ind-link ind-link--4" x1="77" y1="59" x2="57" y2="45" stroke="currentColor" stroke-width="0.8" opacity="0.08"/>
+              <line class="ind-net-link ind-net-link--1" x1="50" y1="40" x2="20" y2="16" stroke="currentColor" stroke-width="0.8" opacity="0"/>
+              <line class="ind-net-link ind-net-link--2" x1="50" y1="40" x2="80" y2="16" stroke="currentColor" stroke-width="0.8" opacity="0"/>
+              <line class="ind-net-link ind-net-link--3" x1="50" y1="40" x2="20" y2="64" stroke="currentColor" stroke-width="0.8" opacity="0"/>
+              <line class="ind-net-link ind-net-link--4" x1="50" y1="40" x2="80" y2="64" stroke="currentColor" stroke-width="0.8" opacity="0"/>
+              <line class="ind-net-link ind-net-link--5" x1="20" y1="16" x2="80" y2="16" stroke="currentColor" stroke-width="0.5" opacity="0"/>
+              <line class="ind-net-link ind-net-link--6" x1="20" y1="64" x2="80" y2="64" stroke="currentColor" stroke-width="0.5" opacity="0"/>
+              <circle class="ind-net-node ind-net-node--c" cx="50" cy="40" r="7" stroke="currentColor" stroke-width="1.2" fill="currentColor" fill-opacity="0.03" opacity="0.15"/>
+              <circle class="ind-net-node ind-net-node--1" cx="20" cy="16" r="4.5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.1"/>
+              <circle class="ind-net-node ind-net-node--2" cx="80" cy="16" r="4.5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.1"/>
+              <circle class="ind-net-node ind-net-node--3" cx="20" cy="64" r="4.5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.1"/>
+              <circle class="ind-net-node ind-net-node--4" cx="80" cy="64" r="4.5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.1"/>
+              <!-- Data pulse dots that travel along links -->
+              <circle class="ind-net-pulse ind-net-pulse--1" cx="50" cy="40" r="1.5" fill="currentColor" opacity="0"/>
+              <circle class="ind-net-pulse ind-net-pulse--2" cx="50" cy="40" r="1.5" fill="currentColor" opacity="0"/>
             </svg>
           </div>
           <h3 class="industry-card__title">Emissionen</h3>

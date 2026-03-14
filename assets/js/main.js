@@ -1,6 +1,7 @@
 /* ============================================================
-   BERGMANN & CO. — Main JavaScript v2
-   GSAP Animations, Lightbox, Counters, Particles
+   BERGMANN & CO. — Main JavaScript v4
+   GSAP Animations, Lightbox, Counters, Particles,
+   Industry Anims, Cursor Glow
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
           initProcessTimeline();
           initCounters();
           createParticles();
+          initCursorGlow();
+          initIndustryAnims();
         }
       });
     }
@@ -87,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function openLightbox() {
     lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    // Close mobile menu if open
     burger.classList.remove('is-active');
     mobileMenu.classList.remove('is-open');
   }
@@ -95,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeLightbox() {
     lightbox.classList.remove('is-open');
     document.body.style.overflow = '';
-    // Reset form after close animation
     setTimeout(() => {
       contactForm.style.display = '';
       formSuccess.classList.remove('is-visible');
@@ -103,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 400);
   }
 
-  // Bind all CTA buttons to open lightbox
   document.querySelectorAll('.js-open-lightbox').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -112,11 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   lightboxClose.addEventListener('click', closeLightbox);
-
-  // Close on backdrop click
   lightbox.querySelector('.lightbox__backdrop').addEventListener('click', closeLightbox);
 
-  // Close on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
       closeLightbox();
@@ -126,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Form submission
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    // Simulate submission
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     submitBtn.textContent = 'Wird gesendet...';
     submitBtn.disabled = true;
@@ -134,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       contactForm.style.display = 'none';
       formSuccess.classList.add('is-visible');
-      // Auto-close after 3s
       setTimeout(closeLightbox, 3000);
     }, 800);
   });
@@ -221,6 +216,213 @@ document.addEventListener('DOMContentLoaded', () => {
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut'
+      });
+    }
+  }
+
+  // ---- CURSOR GLOW ON SERVICE CARDS ----
+  function initCursorGlow() {
+    const cards = document.querySelectorAll('.service-card');
+    cards.forEach(card => {
+      const glowInner = card.querySelector('.service-card__glow-inner');
+      if (!glowInner) return;
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        glowInner.style.left = x + 'px';
+        glowInner.style.top = y + 'px';
+      });
+    });
+  }
+
+  // ---- INDUSTRY CARD ANIMATIONS (GSAP, looping) ----
+  function initIndustryAnims() {
+    // --- Mittelstand: bars grow up ---
+    const growBars = document.querySelectorAll('.ind-grow');
+    if (growBars.length) {
+      const heights = [15, 30, 45, 63];
+      const yOffsets = [60, 45, 30, 12];
+      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+
+      growBars.forEach((bar, i) => {
+        tl.to(bar, {
+          attr: { height: heights[i], y: yOffsets[i] },
+          opacity: 0.1 + i * 0.06,
+          duration: 0.8,
+          ease: 'power2.out'
+        }, i * 0.15);
+      });
+
+      // Trend line
+      const growLine = document.querySelector('.ind-grow-line');
+      const growDot = document.querySelector('.ind-grow-dot');
+      if (growLine) {
+        tl.to(growLine, { opacity: 0.2, duration: 0.6, ease: 'power2.out' }, 0.5);
+      }
+      if (growDot) {
+        tl.to(growDot, { opacity: 0.4, duration: 0.4, ease: 'power2.out' }, 0.9);
+      }
+
+      // Hold, then fade out
+      tl.to({}, { duration: 2 });
+      tl.to([...growBars, growLine, growDot].filter(Boolean), {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.inOut'
+      });
+      // Reset bar heights
+      growBars.forEach((bar) => {
+        tl.set(bar, { attr: { height: 0, y: 75 } }, '>');
+      });
+      if (growLine) tl.set(growLine, { opacity: 0 }, '<');
+      if (growDot) tl.set(growDot, { opacity: 0 }, '<');
+    }
+
+    // --- Real Estate: buildings rise up ---
+    const blds = document.querySelectorAll('.ind-bld');
+    if (blds.length) {
+      const bldData = [
+        { h: 35, y: 40 },  // bld--1
+        { h: 55, y: 20 },  // bld--2
+        { h: 40, y: 35 },  // bld--3
+        { h: 25, y: 50 }   // bld--4
+      ];
+      const wins = document.querySelector('.ind-wins');
+      const winRects = wins ? wins.querySelectorAll('rect') : [];
+
+      const tl2 = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+
+      blds.forEach((bld, i) => {
+        tl2.to(bld, {
+          attr: { height: bldData[i].h, y: bldData[i].y },
+          opacity: 0.12 + i * 0.04,
+          duration: 1,
+          ease: 'power2.out'
+        }, i * 0.2);
+      });
+
+      // Windows fade in
+      if (winRects.length) {
+        tl2.to(winRects, {
+          opacity: 0.12,
+          duration: 0.4,
+          stagger: 0.05,
+          ease: 'power2.out'
+        }, 0.8);
+      }
+
+      tl2.to({}, { duration: 2 });
+      tl2.to([...blds, ...winRects], {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.inOut'
+      });
+      blds.forEach((bld) => {
+        tl2.set(bld, { attr: { height: 0, y: 75 } }, '>');
+      });
+      if (winRects.length) {
+        tl2.set(winRects, { opacity: 0 }, '<');
+      }
+    }
+
+    // --- High Yield: curve draws with travelling dot ---
+    const curve = document.querySelector('.ind-curve');
+    const curveArea = document.querySelector('.ind-curve-area');
+    const curveDot = document.querySelector('.ind-curve-dot');
+    if (curve) {
+      const tl3 = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+
+      tl3.to(curve, {
+        strokeDashoffset: 0,
+        opacity: 0.3,
+        duration: 2,
+        ease: 'power2.inOut'
+      });
+
+      if (curveDot) {
+        tl3.to(curveDot, {
+          opacity: 0.5,
+          duration: 0.3
+        }, 0);
+        // Animate dot along the curve path using motionPath-like manual keyframes
+        tl3.to(curveDot, {
+          keyframes: [
+            { attr: { cx: 5, cy: 55 }, duration: 0 },
+            { attr: { cx: 25, cy: 42 }, duration: 0.4, ease: 'none' },
+            { attr: { cx: 45, cy: 48 }, duration: 0.4, ease: 'none' },
+            { attr: { cx: 55, cy: 44 }, duration: 0.3, ease: 'none' },
+            { attr: { cx: 75, cy: 36 }, duration: 0.4, ease: 'none' },
+            { attr: { cx: 95, cy: 42 }, duration: 0.5, ease: 'none' }
+          ]
+        }, 0);
+      }
+
+      if (curveArea) {
+        tl3.to(curveArea, { opacity: 0.03, duration: 0.8, ease: 'power2.out' }, 1);
+      }
+
+      tl3.to({}, { duration: 2 });
+      tl3.to([curve, curveArea, curveDot].filter(Boolean), {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.inOut'
+      });
+      tl3.set(curve, { strokeDashoffset: 200 }, '>');
+      if (curveDot) tl3.set(curveDot, { attr: { cx: 5, cy: 55 }, opacity: 0 }, '<');
+      if (curveArea) tl3.set(curveArea, { opacity: 0 }, '<');
+    }
+
+    // --- Emissionen: network nodes + pulsing links ---
+    const netLinks = document.querySelectorAll('.ind-net-link');
+    const netNodes = document.querySelectorAll('.ind-net-node');
+    const netPulses = document.querySelectorAll('.ind-net-pulse');
+    if (netNodes.length) {
+      const tl4 = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+
+      // Center node appears
+      tl4.to('.ind-net-node--c', { opacity: 0.3, duration: 0.5, ease: 'power2.out' });
+
+      // Links draw out
+      tl4.to(netLinks, {
+        opacity: 0.12,
+        duration: 0.4,
+        stagger: 0.08,
+        ease: 'power2.out'
+      }, 0.2);
+
+      // Outer nodes appear
+      tl4.to(['.ind-net-node--1', '.ind-net-node--2', '.ind-net-node--3', '.ind-net-node--4'], {
+        opacity: 0.25,
+        duration: 0.4,
+        stagger: 0.1,
+        ease: 'power2.out'
+      }, 0.4);
+
+      // Pulse dots travel
+      if (netPulses.length >= 2) {
+        tl4.to(netPulses[0], {
+          keyframes: [
+            { attr: { cx: 50, cy: 40 }, opacity: 0.5, duration: 0 },
+            { attr: { cx: 20, cy: 16 }, duration: 0.8, ease: 'power2.inOut' },
+            { opacity: 0, duration: 0.2 }
+          ]
+        }, 1.2);
+        tl4.to(netPulses[1], {
+          keyframes: [
+            { attr: { cx: 50, cy: 40 }, opacity: 0.5, duration: 0 },
+            { attr: { cx: 80, cy: 64 }, duration: 0.8, ease: 'power2.inOut' },
+            { opacity: 0, duration: 0.2 }
+          ]
+        }, 1.5);
+      }
+
+      tl4.to({}, { duration: 1.5 });
+      tl4.to([...netLinks, ...netNodes, ...netPulses], {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.inOut'
       });
     }
   }

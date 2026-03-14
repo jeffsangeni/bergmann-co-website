@@ -847,44 +847,108 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   height: 64px;
 }
 
-/* Layers icon */
-.anim-layer { transition: all 0.5s var(--ease-out); }
-.feature-card:hover .anim-layer--1 { transform: translateY(3px); opacity: 0.12; }
-.feature-card:hover .anim-layer--2 { opacity: 0.2; }
-.feature-card:hover .anim-layer--3 { transform: translateY(-3px); opacity: 0.3; }
-.anim-arrow { transition: all 0.5s var(--ease-out); }
-.feature-card:hover .anim-arrow { opacity: 0.35; transform: translateY(2px); }
+/* --- Feature Card: Branching Paths (Alternativen) --- */
+.fi-source { animation: fi-pulse 3s ease-in-out infinite; }
 
-/* Grid blocks icon */
-.anim-block { transition: all 0.5s var(--ease-out); }
-.feature-card:hover .anim-block--1 { opacity: 0.28; transform: translate(-1px, -1px); }
-.feature-card:hover .anim-block--2 { opacity: 0.28; transform: translate(1px, -1px); }
-.feature-card:hover .anim-block--3 { opacity: 0.28; transform: translate(-1px, 1px); }
-.feature-card:hover .anim-block--4 { opacity: 0.28; transform: translate(1px, 1px); }
-.anim-center-dot { transition: all 0.5s var(--ease-out); }
-.feature-card:hover .anim-center-dot { opacity: 0.3; }
-
-/* Wave icon */
-.anim-wave {
-  stroke-dasharray: 120;
-  stroke-dashoffset: 120;
-  animation: wave-draw 5s ease-in-out infinite;
+@keyframes fi-pulse {
+  0%, 100% { opacity: 0.15; r: 3; }
+  50% { opacity: 0.4; r: 4; }
 }
 
-@keyframes wave-draw {
-  0% { stroke-dashoffset: 120; }
-  50% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -120; }
+.fi-path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+}
+.fi-path--1 { animation: fi-draw 3s ease-in-out infinite 0.2s; }
+.fi-path--2 { animation: fi-draw 3s ease-in-out infinite 0.4s; }
+.fi-path--3 { animation: fi-draw 3s ease-in-out infinite 0.6s; }
+
+@keyframes fi-draw {
+  0% { stroke-dashoffset: 60; opacity: 0.08; }
+  50% { stroke-dashoffset: 0; opacity: 0.35; }
+  100% { stroke-dashoffset: -60; opacity: 0.08; }
 }
 
-.anim-wave-dot {
-  animation: wave-pulse 3s ease-in-out infinite;
+.fi-end { animation: fi-end-pulse 3s ease-in-out infinite; }
+.fi-end--1 { animation-delay: 1.2s; }
+.fi-end--2 { animation-delay: 1.4s; }
+.fi-end--3 { animation-delay: 1.6s; }
+
+@keyframes fi-end-pulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.4; }
 }
 
-@keyframes wave-pulse {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.35; }
+/* --- Feature Card: Grid Tiles (Strukturierte Produkte) --- */
+.fi-tile {
+  animation: fi-tile-pop 4s ease-in-out infinite;
 }
+.fi-tile--1 { animation-delay: 0s; }
+.fi-tile--2 { animation-delay: 0.5s; }
+.fi-tile--3 { animation-delay: 1s; }
+.fi-tile--4 { animation-delay: 1.5s; }
+.fi-tile--5 { animation: fi-tile-float 4s ease-in-out infinite 2s; }
+
+@keyframes fi-tile-pop {
+  0%, 100% { opacity: 0.1; fill-opacity: 0.02; }
+  40% { opacity: 0.3; fill-opacity: 0.08; }
+  60% { opacity: 0.3; fill-opacity: 0.08; }
+}
+
+@keyframes fi-tile-float {
+  0%, 100% { opacity: 0.06; transform: translate(0, 0); }
+  50% { opacity: 0.2; transform: translate(-4px, 2px); }
+}
+
+.fi-conn {
+  animation: fi-conn-flash 4s ease-in-out infinite;
+}
+.fi-conn--1 { animation-delay: 0.3s; }
+.fi-conn--2 { animation-delay: 0.8s; }
+.fi-conn--3 { animation-delay: 1.3s; }
+
+@keyframes fi-conn-flash {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.25; }
+}
+
+/* --- Feature Card: Decline Line (Rückgang) --- */
+.fi-decline {
+  stroke-dasharray: 70;
+  stroke-dashoffset: 70;
+  animation: fi-decline-draw 4s ease-in-out infinite;
+}
+
+@keyframes fi-decline-draw {
+  0% { stroke-dashoffset: 70; opacity: 0.1; }
+  50% { stroke-dashoffset: 0; opacity: 0.35; }
+  80% { stroke-dashoffset: 0; opacity: 0.35; }
+  100% { stroke-dashoffset: 70; opacity: 0.1; }
+}
+
+.fi-decline-dot {
+  animation: fi-dot-slide 4s ease-in-out infinite;
+}
+
+@keyframes fi-dot-slide {
+  0% { cx: 8; cy: 16; opacity: 0.15; }
+  50% { cx: 56; cy: 48; opacity: 0.5; }
+  80% { cx: 56; cy: 48; opacity: 0.5; }
+  100% { cx: 8; cy: 16; opacity: 0.15; }
+}
+
+.fi-decline-bg { opacity: 0.04; }
+
+.fi-area {
+  animation: fi-area-fill 4s ease-in-out infinite;
+}
+
+@keyframes fi-area-fill {
+  0%, 100% { opacity: 0; }
+  50%, 80% { opacity: 0.04; }
+}
+
+.fi-base { opacity: 0.06; }
 
 .feature-card__title {
   font-family: var(--font-heading);
@@ -950,44 +1014,30 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   z-index: 0;
 }
 
-/* Animated running border */
-.service-card__border-anim {
+/* Cursor-following glow on service cards */
+.service-card__glow {
   position: absolute;
-  inset: -1px;
+  inset: 0;
   border-radius: var(--radius-xl);
   z-index: 0;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 0.5s var(--ease-out);
+  transition: opacity 0.4s var(--ease-out);
+  pointer-events: none;
 }
 
-.service-card:hover .service-card__border-anim {
+.service-card:hover .service-card__glow {
   opacity: 1;
 }
 
-.service-card__border-anim::before {
-  content: '';
+.service-card__glow-inner {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
   transform: translate(-50%, -50%);
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 60deg,
-    rgba(38, 37, 39, 0.25) 120deg,
-    rgba(38, 37, 39, 0.08) 180deg,
-    transparent 240deg,
-    transparent 360deg
-  );
-  animation: border-rotate 4s linear infinite;
-}
-
-@keyframes border-rotate {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+  pointer-events: none;
 }
 
 .service-card:hover {
@@ -1036,16 +1086,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .service-card--on-dark .service-card__feature svg { color: var(--color-white-40); }
 .service-card--on-dark .service-card__cta { color: var(--color-white); }
 
-.service-card--on-dark .service-card__border-anim::before {
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 60deg,
-    rgba(255, 255, 255, 0.2) 120deg,
-    rgba(255, 255, 255, 0.06) 180deg,
-    transparent 240deg,
-    transparent 360deg
-  );
+.service-card--on-dark .service-card__glow-inner {
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
 }
 
 .service-card--on-dark:hover {
@@ -1361,95 +1403,20 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   color: var(--color-dark);
 }
 
-/* Industry card animated SVG elements */
-.ind-bar {
-  transition: all 0.6s var(--ease-out);
-  transform-origin: bottom center;
+/* --- Industry: Mittelstand — bars grow up, trend line draws --- */
+/* GSAP-driven — see main.js initIndustryAnims() */
+
+/* --- Industry: Real Estate — buildings rise, windows fade in --- */
+/* GSAP-driven — see main.js initIndustryAnims() */
+
+/* --- Industry: High Yield — curve draws with travelling dot --- */
+.ind-curve {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
 }
 
-.industry-card:hover .ind-bar--1 { opacity: 0.15; transform: scaleY(1.1); }
-.industry-card:hover .ind-bar--2 { opacity: 0.2; transform: scaleY(1.05); }
-.industry-card:hover .ind-bar--3 { opacity: 0.28; transform: scaleY(1.08); }
-.industry-card:hover .ind-bar--4 { opacity: 0.35; transform: scaleY(1.03); }
-
-.ind-trend {
-  stroke-dasharray: 150;
-  stroke-dashoffset: 150;
-  transition: stroke-dashoffset 1.2s var(--ease-out);
-}
-
-.industry-card:hover .ind-trend { stroke-dashoffset: 0; }
-
-.ind-trend-dot {
-  opacity: 0;
-  transition: opacity 0.4s 0.8s;
-}
-
-.industry-card:hover .ind-trend-dot { opacity: 0.6; }
-
-/* Building animation */
-.ind-building {
-  transition: all 0.5s var(--ease-out);
-  transform-origin: bottom center;
-}
-
-.industry-card:hover .ind-building--1 { opacity: 0.25; transform: scaleY(1.05); }
-.industry-card:hover .ind-building--2 { opacity: 0.3; transform: scaleY(1.02); }
-.industry-card:hover .ind-building--3 { opacity: 0.2; transform: scaleY(1.08); }
-
-.ind-window {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.industry-card:hover .ind-window { opacity: 0.15; }
-
-/* Yield curve animation */
-.ind-yield--main {
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  transition: stroke-dashoffset 1.5s var(--ease-out);
-}
-
-.industry-card:hover .ind-yield--main { stroke-dashoffset: 0; }
-
-.ind-yield-dot {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.industry-card:hover .ind-yield-dot--1 { opacity: 0.4; transition-delay: 0.4s; }
-.industry-card:hover .ind-yield-dot--2 { opacity: 0.4; transition-delay: 0.7s; }
-.industry-card:hover .ind-yield-dot--3 { opacity: 0.4; transition-delay: 1s; }
-
-/* Network animation */
-.ind-node {
-  transition: all 0.5s var(--ease-out);
-}
-
-.industry-card:hover .ind-node--center { opacity: 0.35; }
-.industry-card:hover .ind-node--1 { opacity: 0.3; transform: translate(-3px, -3px); }
-.industry-card:hover .ind-node--2 { opacity: 0.3; transform: translate(3px, -3px); }
-.industry-card:hover .ind-node--3 { opacity: 0.3; transform: translate(-3px, 3px); }
-.industry-card:hover .ind-node--4 { opacity: 0.3; transform: translate(3px, 3px); }
-
-.ind-link {
-  stroke-dasharray: 40;
-  stroke-dashoffset: 40;
-  transition: stroke-dashoffset 0.8s var(--ease-out);
-}
-
-.industry-card:hover .ind-link { stroke-dashoffset: 0; }
-.industry-card:hover .ind-link--2 { transition-delay: 0.1s; }
-.industry-card:hover .ind-link--3 { transition-delay: 0.2s; }
-.industry-card:hover .ind-link--4 { transition-delay: 0.3s; }
-
-.ind-data-dot {
-  opacity: 0;
-  transition: opacity 0.3s 0.5s;
-}
-
-.industry-card:hover .ind-data-dot { opacity: 0.5; }
+/* --- Industry: Emissionen — network pulses --- */
+/* GSAP-driven — see main.js initIndustryAnims() */
 
 .industry-card__title {
   font-family: var(--font-heading);
@@ -1649,7 +1616,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   .hero__scroll-line::after,
   .hero__badge-dot,
   .hero__orb,
-  .service-card__border-anim::before {
+  .fi-source, .fi-path, .fi-end,
+  .fi-tile, .fi-conn,
+  .fi-decline, .fi-decline-dot, .fi-area {
     animation: none;
   }
 }

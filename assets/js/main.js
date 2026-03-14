@@ -239,16 +239,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('heroParticles');
     if (!container) return;
 
-    for (let i = 0; i < 20; i++) {
+    const isMobile = window.innerWidth <= 767;
+    const count = isMobile ? 25 : 45;
+    for (let i = 0; i < count; i++) {
       const particle = document.createElement('div');
       particle.className = 'hero__particle';
       container.appendChild(particle);
 
       const x = Math.random() * 100;
       const y = Math.random() * 100;
-      const size = 2 + Math.random() * 3;
-      const duration = 6 + Math.random() * 8;
-      const delay = Math.random() * 5;
+      const size = 3 + Math.random() * 5;
+      const duration = 5 + Math.random() * 9;
+      const delay = Math.random() * 6;
+      const baseOpacity = 0.28 + Math.random() * 0.32;
 
       particle.style.left = x + '%';
       particle.style.top = y + '%';
@@ -256,9 +259,9 @@ document.addEventListener('DOMContentLoaded', () => {
       particle.style.height = size + 'px';
 
       gsap.to(particle, {
-        opacity: 0.08 + Math.random() * 0.08,
-        y: -40 - Math.random() * 60,
-        x: -20 + Math.random() * 40,
+        opacity: baseOpacity,
+        y: -60 - Math.random() * 80,
+        x: -30 + Math.random() * 60,
         duration,
         delay,
         repeat: -1,

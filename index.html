@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bergmann & Co. — Financial Solutions for Scaling Businesses</title>
+  <meta name="description" content="Innovative Capital & Financing Solutions. Wir unterstützen Unternehmen bei der Strukturierung, Beschaffung und Optimierung von Kapital.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- ========== LOADER ========== -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <img src="assets/images/logo-white.png" alt="Bergmann & Co." class="loader__logo">
+      <div class="loader__bar">
+        <div class="loader__progress" id="loaderProgress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="#" class="nav__logo">
+        <img src="assets/images/logo-black.png" alt="Bergmann & Co." class="nav__logo-img">
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="#services" class="nav__link">Dienstleistungen</a>
+        <a href="#process" class="nav__link">Kundenprozess</a>
+        <a href="#industries" class="nav__link">Branchen</a>
+        <a href="#contact" class="nav__link nav__link--cta">Kontakt</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__inner">
+      <a href="#services" class="mobile-menu__link">Dienstleistungen</a>
+      <a href="#process" class="mobile-menu__link">Kundenprozess</a>
+      <a href="#industries" class="mobile-menu__link">Branchen</a>
+      <a href="#contact" class="mobile-menu__link">Kontakt</a>
+    </div>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__gradient"></div>
+      <div class="hero__grid-overlay"></div>
+    </div>
+    <div class="hero__container">
+      <div class="hero__badge anim-fade-up">
+        <span class="hero__badge-dot"></span>
+        Innovative Kapital- & Finanzierungslösungen
+      </div>
+      <h1 class="hero__title anim-fade-up" data-delay="0.1">
+        Financial Solutions<br>
+        <span class="hero__title-accent">for Scaling Businesses</span>
+      </h1>
+      <p class="hero__subtitle anim-fade-up" data-delay="0.2">
+        Mit einem tiefen Verständnis der komplexen Dynamiken des Kapitalmarktes bieten wir unseren Kunden innovative Ansätze zur Kapitalbeschaffung, Refinanzierung und zur Optimierung ihrer Kapitalstruktur.
+      </p>
+      <div class="hero__actions anim-fade-up" data-delay="0.3">
+        <a href="#contact" class="btn btn--primary">
+          Kontakt aufnehmen
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#services" class="btn btn--ghost">
+          Mehr erfahren
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll-indicator">
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== CAPITAL SOLUTIONS (3-col feature cards) ========== -->
+  <section class="features" id="features">
+    <div class="features__container">
+      <div class="features__header anim-fade-up">
+        <span class="section-tag">Capital Solutions</span>
+        <h2 class="section-title">Kapitalmarkt-Expertise<br>für Ihr Wachstum</h2>
+      </div>
+      <div class="features__grid">
+        <div class="feature-card anim-fade-up" data-delay="0">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="feature-card__title">Alternativen zu traditionellen Finanzierungen</h3>
+          <p class="feature-card__text">Die Landschaft des Kapitalmarkts erlebt eine Verschiebung hin zu alternativen Finanzierungsquellen. Entdecken Sie neue Wege abseits herkömmlicher Bankdarlehen, um Ihre Wachstumsziele zu erreichen.</p>
+        </div>
+        <div class="feature-card anim-fade-up" data-delay="0.1">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h2m2 0h2m2 0h2"/><path d="M7 12h10"/></svg>
+          </div>
+          <h3 class="feature-card__title">Bedeutung strukturierter Produkte</h3>
+          <p class="feature-card__text">Strukturierte Produkte und festverzinsliche Wertpapiere gewinnen an Beliebtheit. Sie bieten Anlegern und Emittenten Flexibilität und können auf individuelle Risikopräferenzen zugeschnitten werden.</p>
+        </div>
+        <div class="feature-card anim-fade-up" data-delay="0.2">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="feature-card__title">Rückgang bei klassischen Finanzierungen</h3>
+          <p class="feature-card__text">Mit strengeren Regulierungen und einem veränderten Wirtschaftsklima verlieren traditionelle Bankenfinanzierungen an Attraktivität. Unternehmen suchen effizientere Wege der Kapitalbeschaffung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="services" id="services">
+    <div class="services__container">
+      <div class="services__header anim-fade-up">
+        <span class="section-tag">Unsere Dienstleistungen</span>
+        <h2 class="section-title">Expertise über das gesamte<br>Spektrum der Finanzinstrumente</h2>
+        <p class="section-desc">Unsere Expertise umfasst ein breites Spektrum an Finanzinstrumenten, darunter Unternehmensanleihen, syndizierte Kredite und strukturierte Finanzierungen.</p>
+      </div>
+
+      <div class="services__cards">
+        <!-- Service 1 -->
+        <div class="service-card anim-fade-up">
+          <div class="service-card__glow"></div>
+          <div class="service-card__inner">
+            <div class="service-card__tag">Wachstumskapital</div>
+            <h3 class="service-card__title">Debt Capital Markets</h3>
+            <p class="service-card__text">Prozess der Erstellung und des Verkaufs von festverzinslichen Wertpapieren an Investoren zur Kapitalbeschaffung.</p>
+            <div class="service-card__features">
+              <div class="service-card__feature">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Unternehmensanleihen
+              </div>
+              <div class="service-card__feature">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Festverzinsliche Wertpapiere
+              </div>
+              <div class="service-card__feature">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Kapitalstrukturierung
+              </div>
+            </div>
+            <a href="#contact" class="service-card__cta">
+              Kontakt
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card anim-fade-up" data-delay="0.15">
+          <div class="service-card__glow"></div>
+          <div class="service-card__inner">
+            <div class="service-card__tag">Mittelstand & Real Estate</div>
+            <h3 class="service-card__title">Leveraged Finance & Loan Solutions</h3>
+            <p class="service-card__text">Unser Team bietet Syndicated Loans, Senior Loans und Mezzanine-Finanzierungen für Unternehmen an, um ihre Finanzierungsbedürfnisse zu decken.</p>
+            <div class="service-card__features">
+              <div class="service-card__feature">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Syndicated Loans
+              </div>
+              <div class="service-card__feature">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Senior & Mezzanine
+              </div>
+              <div class="service-card__feature">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Immobilienfinanzierung
+              </div>
+            </div>
+            <a href="#contact" class="service-card__cta">
+              Kontakt
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA BAND ========== -->
+  <section class="cta-band">
+    <div class="cta-band__bg">
+      <div class="cta-band__gradient"></div>
+    </div>
+    <div class="cta-band__container">
+      <div class="cta-band__content">
+        <h2 class="cta-band__title anim-fade-up">Optimieren Sie Ihre Kapitalstruktur</h2>
+        <div class="cta-band__right anim-fade-up" data-delay="0.1">
+          <span class="cta-band__tag">Individuelle Finanzstrategien</span>
+          <p class="cta-band__text">Unser Portfolio an Dienstleistungen umfasst eine präzise Palette an Finanzierungslösungen, die auf die Anforderungen dynamischer Märkte und die individuellen Bedürfnisse unserer Kunden abgestimmt sind. Wir spezialisieren uns auf das intelligente Engineering von Kapitalstrukturen, um Wachstum zu fördern, Wert zu schaffen und nachhaltige Erfolge zu sichern.</p>
+          <a href="#contact" class="btn btn--white">
+            Jetzt starten
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESS ========== -->
+  <section class="process" id="process">
+    <div class="process__container">
+      <div class="process__header anim-fade-up">
+        <span class="section-tag">Kundenprozess</span>
+        <h2 class="section-title">Starke Partner &<br>ein starkes Netzwerk</h2>
+      </div>
+
+      <div class="process__timeline">
+        <div class="process__line">
+          <div class="process__line-fill" id="processLineFill"></div>
+        </div>
+
+        <div class="process__step anim-fade-up" data-delay="0">
+          <div class="process__step-marker">
+            <span class="process__step-num">01</span>
+          </div>
+          <div class="process__step-content">
+            <h3 class="process__step-title">Bedarfsanalyse</h3>
+            <p class="process__step-text">Ermittlung Ihrer spezifischen Finanzierungsbedürfnisse und Ziele durch eine tiefgehende Analyse, um maßgeschneiderte Lösungen zu entwickeln.</p>
+          </div>
+        </div>
+
+        <div class="process__step anim-fade-up" data-delay="0.1">
+          <div class="process__step-marker">
+            <span class="process__step-num">02</span>
+          </div>
+          <div class="process__step-content">
+            <h3 class="process__step-title">Angebot</h3>
+            <p class="process__step-text">Erstellung eines individuellen Angebots basierend auf der Bedarfsanalyse, das die optimalen Finanzierungsoptionen und -strukturen umfasst.</p>
+          </div>
+        </div>
+
+        <div class="process__step anim-fade-up" data-delay="0.2">
+          <div class="process__step-marker">
+            <span class="process__step-num">03</span>
+          </div>
+          <div class="process__step-content">
+            <h3 class="process__step-title">Due Diligence</h3>
+            <p class="process__step-text">Detaillierte Prüfung der finanziellen Situation Ihres Unternehmens, um Risiken zu identifizieren und Transparenz zu schaffen, als Grundlage für fundierte Entscheidungen.</p>
+          </div>
+        </div>
+
+        <div class="process__step anim-fade-up" data-delay="0.3">
+          <div class="process__step-marker">
+            <span class="process__step-num">04</span>
+          </div>
+          <div class="process__step-content">
+            <h3 class="process__step-title">Abwicklung</h3>
+            <p class="process__step-text">Effiziente und strukturierte Durchführung der Transaktion, einschließlich aller notwendigen Prozesse und Schritte, für eine reibungslose Umsetzung.</p>
+          </div>
+        </div>
+
+        <div class="process__step anim-fade-up" data-delay="0.4">
+          <div class="process__step-marker">
+            <span class="process__step-num">05</span>
+          </div>
+          <div class="process__step-content">
+            <h3 class="process__step-title">Folgegeschäft</h3>
+            <p class="process__step-text">Nach erfolgreichem Abschluss der Transaktion, Identifikation weiterer Wachstums- und Optimierungspotenziale für zukünftige Geschäftsmöglichkeiten.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INDUSTRIES ========== -->
+  <section class="industries" id="industries">
+    <div class="industries__container">
+      <div class="industries__header anim-fade-up">
+        <span class="section-tag">Branchenfokus</span>
+        <h2 class="section-title">Maßgeschneiderte Kapitalstrategien<br>für Ihre Branche</h2>
+        <p class="section-desc">Von der dynamischen Immobilienbranche über den lebhaften Mittelstand, die präzise Strukturierung und Platzierung von Emissionen bis hin zu anspruchsvollen Hochverzinslichen Anleihen.</p>
+      </div>
+
+      <div class="industries__grid">
+        <div class="industry-card anim-fade-up" data-delay="0">
+          <div class="industry-card__number">01</div>
+          <div class="industry-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          </div>
+          <h3 class="industry-card__title">Mittelstand</h3>
+          <p class="industry-card__text">Kapitalbeschaffungs- und Liquiditätslösungen für mittelständische Unternehmen zur Förderung ihres Wachstums.</p>
+        </div>
+
+        <div class="industry-card anim-fade-up" data-delay="0.1">
+          <div class="industry-card__number">02</div>
+          <div class="industry-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M9 8h1"/><path d="M9 12h1"/><path d="M9 16h1"/><path d="M14 8h1"/><path d="M14 12h1"/><path d="M14 16h1"/><path d="M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>
+          </div>
+          <h3 class="industry-card__title">Real Estate</h3>
+          <p class="industry-card__text">Spezialisierung auf komplexe Immobilientransaktionen und -finanzierungen für nachhaltiges Wachstum und Entwicklung.</p>
+        </div>
+
+        <div class="industry-card anim-fade-up" data-delay="0.2">
+          <div class="industry-card__number">03</div>
+          <div class="industry-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="industry-card__title">High Yield</h3>
+          <p class="industry-card__text">Fokussierung auf High-Yield-Anleihen und Corporate Bonds als Teil einer strategischen Finanzierungsplanung für Unternehmen.</p>
+        </div>
+
+        <div class="industry-card anim-fade-up" data-delay="0.3">
+          <div class="industry-card__number">04</div>
+          <div class="industry-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8.3a4 4 0 00-1.172-2.872L3 3"/><path d="m15 9 6-6"/></svg>
+          </div>
+          <h3 class="industry-card__title">Emissionen</h3>
+          <p class="industry-card__text">Expertise in der Strukturierung und Platzierung von Fremdemissionen und syndizierten Krediten für eine optimierte Kapitalstruktur.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contact">
+    <div class="contact__container">
+      <div class="contact__content anim-fade-up">
+        <span class="section-tag section-tag--light">Kontakt</span>
+        <h2 class="contact__title">Kontaktieren Sie uns</h2>
+        <p class="contact__subtitle">Ihr verlässlicher Partner für Ihre Finanzstrategie</p>
+        <p class="contact__text">Kontaktieren Sie unser Expertenteam – die treibende Kraft hinter unseren maßgeschneiderten Finanzstrategien.</p>
+        <div class="contact__actions">
+          <a href="mailto:info@bergmann-co.com" class="btn btn--white btn--lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+            info@bergmann-co.com
+          </a>
+        </div>
+      </div>
+      <div class="contact__visual anim-fade-up" data-delay="0.2">
+        <div class="contact__card">
+          <div class="contact__card-glow"></div>
+          <div class="contact__card-inner">
+            <div class="contact__card-logo">
+              <img src="assets/images/logo-white.png" alt="Bergmann & Co.">
+            </div>
+            <div class="contact__card-info">
+              <span class="contact__card-label">E-Mail</span>
+              <span class="contact__card-value">info@bergmann-co.com</span>
+            </div>
+            <div class="contact__card-info">
+              <span class="contact__card-label">Standort</span>
+              <span class="contact__card-value">Frankfurt am Main</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="assets/images/logo-black.png" alt="Bergmann & Co." class="footer__logo">
+          <p class="footer__desc">Innovative Capital & Financing Solutions. Wir unterstützen Unternehmen bei der Strukturierung, Beschaffung und Optimierung von Kapital.</p>
+        </div>
+        <div class="footer__nav">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Navigation</h4>
+            <a href="#" class="footer__link">Home</a>
+            <a href="#services" class="footer__link">Dienstleistungen</a>
+            <a href="#process" class="footer__link">Kundenprozess</a>
+            <a href="#industries" class="footer__link">Branchen</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Rechtliches</h4>
+            <a href="impressum.html" class="footer__link">Impressum</a>
+            <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+            <a href="#contact" class="footer__link">Kontakt</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 Bergmann & Co. Alle Rechte vorbehalten.</span>
+        <a href="mailto:info@bergmann-co.com" class="footer__email">info@bergmann-co.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

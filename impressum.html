@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/cookies.css">
   <script defer src="/_vercel/speed-insights/script.js"></script>
   <style>
     .legal { padding: calc(var(--nav-height) + 64px) 0 var(--section-pad); }
@@ -146,5 +147,60 @@
       document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
     });
   </script>
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie-Einstellungen">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">Wir verwenden Cookies, um die Website zu betreiben, die Nutzung zu analysieren und relevante Inhalte bereitzustellen. Weitere Informationen finden Sie in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+      <div class="cookie-banner__actions">
+        <button class="ck-btn ck-btn--accept" id="cookieAcceptAll">Alle akzeptieren</button>
+        <button class="ck-btn ck-btn--deny" id="cookieDeny">Ablehnen</button>
+        <button class="ck-btn ck-btn--text" id="cookieSettings">Einstellungen</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cookie-modal" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+    <div class="cookie-modal__backdrop" id="cookieModalBackdrop"></div>
+    <div class="cookie-modal__card">
+      <button class="cookie-modal__close" id="cookieModalClose" aria-label="Schließen">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <h2 class="cookie-modal__title" id="cookieModalTitle">Cookie-Einstellungen</h2>
+      <p class="cookie-modal__desc">Wählen Sie, welche Cookies Sie zulassen möchten. Notwendige Cookies sind immer aktiv, da sie für den Betrieb der Website erforderlich sind. Weitere Informationen in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+      <div class="cookie-category">
+        <div class="cookie-category__header">
+          <span class="cookie-category__name">Notwendig</span>
+          <span class="cookie-category__always">Immer aktiv</span>
+        </div>
+        <p class="cookie-category__desc">Diese Cookies sind für das ordnungsgemäße Funktionieren der Website erforderlich und können nicht deaktiviert werden.</p>
+      </div>
+      <div class="cookie-category">
+        <div class="cookie-category__header">
+          <span class="cookie-category__name">Analyse</span>
+          <label class="cookie-toggle" aria-label="Analyse-Cookies"><input type="checkbox" id="ck-analytics"><span class="cookie-toggle__track"></span></label>
+        </div>
+        <p class="cookie-category__desc">Helfen uns zu verstehen, wie Besucher mit der Website interagieren, um die Nutzererfahrung kontinuierlich zu verbessern.</p>
+      </div>
+      <div class="cookie-category">
+        <div class="cookie-category__header">
+          <span class="cookie-category__name">Marketing</span>
+          <label class="cookie-toggle" aria-label="Marketing-Cookies"><input type="checkbox" id="ck-marketing"><span class="cookie-toggle__track"></span></label>
+        </div>
+        <p class="cookie-category__desc">Werden verwendet, um Ihnen relevante Werbeinhalte basierend auf Ihren Interessen anzuzeigen.</p>
+      </div>
+      <div class="cookie-category">
+        <div class="cookie-category__header">
+          <span class="cookie-category__name">Personalisierung</span>
+          <label class="cookie-toggle" aria-label="Personalisierungs-Cookies"><input type="checkbox" id="ck-personalization"><span class="cookie-toggle__track"></span></label>
+        </div>
+        <p class="cookie-category__desc">Ermöglichen es der Website, sich an Ihre Präferenzen zu erinnern und ein personalisiertes Erlebnis zu bieten.</p>
+      </div>
+      <div class="cookie-modal__actions">
+        <button class="ck-btn ck-btn--dark" id="cookieModalAcceptAll">Alle akzeptieren</button>
+        <button class="ck-btn ck-btn--outline" id="cookieModalSave">Auswahl speichern</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/cookies.js"></script>
 </body>
 </html>

@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!container) return;
 
     const isMobile = window.innerWidth <= 767;
-    const count = isMobile ? 25 : 45;
+    const count = isMobile ? 30 : 50;
     for (let i = 0; i < count; i++) {
       const particle = document.createElement('div');
       particle.className = 'hero__particle';
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const y = Math.random() * 100;
       const size = 3 + Math.random() * 5;
       const duration = 5 + Math.random() * 9;
-      const delay = Math.random() * 6;
+      const delay = Math.random() * 1.2;
       const baseOpacity = 0.28 + Math.random() * 0.32;
 
       particle.style.left = x + '%';
@@ -620,23 +620,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isMobile = window.innerWidth <= 767;
 
-    ScrollTrigger.create({
-      trigger: '.process__timeline',
-      start: isMobile ? 'top 85%' : 'top 70%',
-      end: isMobile ? 'bottom 20%' : 'bottom 50%',
-      scrub: isMobile ? true : 0.5,
-      onUpdate: (self) => {
-        lineFill.style.height = `${self.progress * 100}%`;
-
-        steps.forEach((step, i) => {
-          const stepProgress = (i + 0.3) / steps.length;
-          if (self.progress >= stepProgress) {
-            step.classList.add('is-active');
-          } else {
-            step.classList.remove('is-active');
-          }
-        });
+    // GPU-accelerated scaleY tween driven by scroll scrub
+    gsap.to(lineFill, {
+      scaleY: 1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.process__timeline',
+        start: isMobile ? 'top 85%' : 'top 72%',
+        end: isMobile ? 'bottom 15%' : 'bottom 45%',
+        scrub: 1.8,
       }
+    });
+
+    // Activate each step as it enters view
+    steps.forEach((step) => {
+      ScrollTrigger.create({
+        trigger: step,
+        start: 'top 68%',
+        onEnter: () => step.classList.add('is-active'),
+        onLeaveBack: () => step.classList.remove('is-active'),
+      });
     });
   }
 

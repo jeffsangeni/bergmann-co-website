@@ -6,7 +6,7 @@
 
 // ---- WEB3FORMS ACCESS KEY ----
 // Get your free key at: https://web3forms.com (enter your email, copy the key)
-const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY_HERE';
+const WEB3FORMS_KEY = '68766cf6-42c2-4690-ad7b-5592827cf4ae';
 
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger, CustomEase);

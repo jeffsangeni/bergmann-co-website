@@ -4,6 +4,10 @@
    Industry Anims, Cursor Glow
    ============================================================ */
 
+// ---- WEB3FORMS ACCESS KEY ----
+// Get your free key at: https://web3forms.com (enter your email, copy the key)
+const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY_HERE';
+
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger, CustomEase);
   CustomEase.create('smooth', '0.16, 1, 0.3, 1');
@@ -121,34 +125,77 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Form submission
-  contactForm.addEventListener('submit', (e) => {
+  // ---- SHARED SUBMIT HELPER ----
+  async function submitToWeb3Forms(data) {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ access_key: WEB3FORMS_KEY, ...data }),
+    });
+    return res.json();
+  }
+
+  // Lightbox contact form
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     submitBtn.textContent = 'Wird gesendet...';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
-      contactForm.style.display = 'none';
-      formSuccess.classList.add('is-visible');
-      setTimeout(closeLightbox, 3000);
-    }, 800);
+    const fd = new FormData(contactForm);
+    try {
+      const result = await submitToWeb3Forms({
+        subject: 'Neue Kontaktanfrage – Bergmann & Co.',
+        from_name: `${fd.get('firstName')} ${fd.get('lastName')}`,
+        email: fd.get('email'),
+        company: fd.get('company') || '–',
+        message: fd.get('message') || '–',
+      });
+      if (result.success) {
+        contactForm.style.display = 'none';
+        formSuccess.classList.add('is-visible');
+        setTimeout(closeLightbox, 3000);
+      } else {
+        throw new Error('failed');
+      }
+    } catch {
+      submitBtn.textContent = 'Fehler – bitte erneut versuchen';
+      submitBtn.disabled = false;
+    }
   });
 
-  // CTA form submission
+  // CTA band form
   const ctaForm = document.getElementById('ctaForm');
   if (ctaForm) {
-    ctaForm.addEventListener('submit', (e) => {
+    ctaForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = ctaForm.querySelector('button[type="submit"]');
       const originalHTML = submitBtn.innerHTML;
-      submitBtn.textContent = 'Gesendet!';
+      submitBtn.textContent = 'Wird gesendet...';
       submitBtn.disabled = true;
-      setTimeout(() => {
-        submitBtn.innerHTML = originalHTML;
+
+      const fd = new FormData(ctaForm);
+      try {
+        const result = await submitToWeb3Forms({
+          subject: 'Neue Anfrage (CTA) – Bergmann & Co.',
+          from_name: fd.get('ctaName'),
+          email: fd.get('ctaEmail'),
+          message: fd.get('ctaMessage') || '–',
+        });
+        if (result.success) {
+          submitBtn.textContent = 'Gesendet ✓';
+          setTimeout(() => {
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.disabled = false;
+            ctaForm.reset();
+          }, 2500);
+        } else {
+          throw new Error('failed');
+        }
+      } catch {
+        submitBtn.textContent = 'Fehler – erneut versuchen';
         submitBtn.disabled = false;
-        ctaForm.reset();
-      }, 2500);
+      }
     });
   }
 

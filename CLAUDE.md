@@ -11,61 +11,11 @@
 Skill("frontend-design")
 ```
 
-Guides production-grade HTML/CSS/JS with intentional aesthetic direction. Enforces:
-- Bold typographic choices — never Inter, Arial, or generic system fonts
-- Cohesive color systems via CSS variables
-- Motion that serves meaning (GSAP scroll reveals, hover states)
-- Spatial composition: asymmetry, overlap, generous negative space
-- Atmospheric backgrounds (textures, layered elements) over flat fills
-
-**This project constraint:** The aesthetic is already defined — pure black/white, Montserrat + Lato, GSAP animations. Use the skill to maintain that precision and avoid drift.
+**This project constraint:** The aesthetic is already defined — white + `#262527`, Space Grotesk + Inter, GSAP animations, modern SaaS-finance hybrid. Use the skill to maintain that precision and avoid drift.
 
 ---
 
-### 2. `ui-ux-pro-max` — UX Intelligence & Pre-Delivery Validation
-**Invoke for any UX decision, typography/color choice, accessibility concern, or pre-launch quality check.**
-
-```
-Skill("ui-ux-pro-max")
-```
-
-**Script path:**
-```bash
-UIUX="/Users/jeff/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.0.1/.claude/skills/ui-ux-pro-max/scripts/search.py"
-```
-
-**Useful queries for this project:**
-
-```bash
-# Check fintech/financial site best practices
-python3 $UIUX "financial services landing page minimal" --design-system -p "Bergmann Co"
-
-# Typography guidance (we use Montserrat/Lato — validate the pairing)
-python3 $UIUX "luxury financial editorial typography" --domain typography
-
-# Animation timing for GSAP scroll reveals
-python3 $UIUX "scroll reveal entrance animation timing" --domain ux
-
-# Accessibility audit before delivery
-python3 $UIUX "accessibility contrast keyboard nav focus" --domain ux
-
-# Landing page structure validation
-python3 $UIUX "hero cta services process contact footer" --domain landing
-```
-
-**Run the pre-delivery checklist mentally against §1 (Accessibility) and §2 (Touch & Interaction) before every delivery.**
-
-Key rules to always enforce:
-- Body text contrast ≥ 4.5:1 (black on white passes; white on dark overlay — verify)
-- All interactive elements have visible focus rings (`outline: 0.125rem solid #4d65ff`)
-- Touch targets ≥ 44×44px (nav links, buttons, cookie toggles)
-- `prefers-reduced-motion` — GSAP animations should degrade gracefully
-- Animation duration 150–400ms; use `ease-out` for entrances, `ease-in` for exits
-- `transform`/`opacity` only — never animate `width`, `height`, `top`, `left`
-
----
-
-### 3. `playwright-skill` — Screenshot, Compare & Validate
+### 2. `playwright-skill` — Screenshot, Compare & Validate
 **Use for every visual verification loop — never rely on mental diffs.**
 
 ```
@@ -85,120 +35,16 @@ SKILL_DIR="/Users/jeff/.claude/plugins/cache/playwright-skill/playwright-skill/4
 cd "$SKILL_DIR" && node run.js /tmp/playwright-test-*.js
 ```
 
-**Standard screenshot script template:**
-```javascript
-// /tmp/playwright-test-NAME.js
-const { chromium } = require('playwright');
-const TARGET_URL = 'http://localhost:8787';
-
-(async () => {
-  const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage();
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto(TARGET_URL, { waitUntil: 'domcontentloaded' });
-  await page.waitForTimeout(5500); // wait for loader animation
-  try { await page.locator('#acceptCookies').click({ timeout: 800 }); } catch(e) {}
-
-  // Full page
-  await page.screenshot({ path: '/tmp/screenshot-full.png', fullPage: true });
-
-  // Specific section
-  await page.$eval('.c-services__projects', el => el.scrollIntoView({ behavior: 'instant' }));
-  await page.waitForTimeout(600);
-  const box = await page.$eval('.c-services__projects', el => el.getBoundingClientRect());
-  await page.screenshot({ path: '/tmp/screenshot-services.png',
-    clip: { x: 0, y: box.y, width: 1440, height: box.height } });
-
-  await browser.close();
-  console.log('Screenshots saved to /tmp/');
-})();
-```
-
-**Comparison workflow (required — minimum 2 rounds):**
-1. Screenshot local → read PNG → compare vs reference
-2. List ALL specific mismatches with measurements: `"heading is 52px, original shows ~42px"`, `"gap between cards is 28px, should be 0px"`
-3. Fix all mismatches
-4. Re-screenshot → re-compare
-5. Stop only when no visible differences remain or user approves
-
-**When inspecting the original site:**
-```javascript
-// Inspect computed styles of any element
-const style = await page.evaluate(() => {
-  const el = document.querySelector('.section_projects');
-  const cs = getComputedStyle(el);
-  return { fontFamily: cs.fontFamily, fontSize: cs.fontSize, bg: cs.backgroundImage };
-});
-```
+**Loader wait:** The site has a GSAP loader animation. Always `waitForTimeout(5500)` after `goto()` on `index.html` before taking screenshots.
 
 ---
 
-### 4. `ckm:design` — Brand Assets & Banners *(situational)*
-**Use when creating new marketing assets, social media images, or banners for Bergmann & Co.**
+### 3. Other Skills (situational)
 
-```
-Skill("ckm:design")
-```
-
-Capabilities relevant to this project:
-- **Logo generation** — if logo variants are needed (white, black, inverted)
-- **Banner design** — 22 art direction styles for social/web headers
-- **Social photos** — HTML→screenshot export for Instagram/LinkedIn posts
-- **CIP mockups** — business cards, letterhead, stationery if needed
-
-Not relevant for day-to-day site coding.
-
----
-
-### 5. `ckm:brand` — Brand Compliance *(situational)*
-**Use when reviewing content tone, expanding copy, or auditing brand consistency.**
-
-```
-Skill("ckm:brand")
-```
-
-Relevant for: ensuring new copy matches Bergmann & Co.'s voice (premium, precise, understated financial authority). Not needed for structural CSS/layout work.
-
----
-
-### 6. `ckm:design-system` — Token Architecture *(situational)*
-**Use if extending the CSS custom property system or creating a formal design token spec.**
-
-```
-Skill("ckm:design-system")
-```
-
-Our existing token system is in `assets/css/main.css` under `:root {}`. Use this skill if the token architecture needs formalising across multiple files or a JSON token export is required.
-
----
-
-## Reference Image Workflow
-
-**If a reference image is provided:**
-1. Match layout, spacing, typography, and color exactly — no improvements, no additions
-2. Swap in placeholder content only if actual content isn't provided (`https://placehold.co/`)
-3. Screenshot → compare → fix → re-screenshot. Minimum 2 full comparison rounds
-4. Stop only when no visible differences remain, or user explicitly approves
-
-**If no reference image:**
-1. Invoke `frontend-design` skill first
-2. Design from scratch with high craft to match the established Bergmann & Co. aesthetic
-3. Still run 2 screenshot comparison rounds against the live reference at `https://bergmann-co.com/`
-
----
-
-## Standard Design-to-Code Workflow
-
-```
-1. frontend-design skill    → commit to aesthetic direction
-2. ui-ux-pro-max (optional) → validate UX decisions, get font/color guidance
-3. Write HTML/CSS/JS        → following project design rules below
-4. playwright screenshot    → http://localhost:8787
-5. Compare vs reference     → list specific pixel-level mismatches
-6. Fix all mismatches       → repeat from step 4
-7. ui-ux-pro-max checklist  → §1 Accessibility + §2 Touch minimum
-8. Deliver                  → only when no visible differences remain
-```
+- `ui-ux-pro-max` — UX validation, accessibility checks, font/color guidance
+- `ckm:design` — Brand assets, banners, social media images
+- `ckm:brand` — Brand voice compliance for copy
+- `ckm:design-system` — Formal design token architecture if needed
 
 ---
 
@@ -207,47 +53,81 @@ Our existing token system is in `assets/css/main.css` under `:root {}`. Use this
 | Property | Value |
 |---|---|
 | **Site** | Bergmann & Co. — financial advisory |
-| **Reference** | `https://bergmann-co.com/` |
 | **Stack** | Pure HTML/CSS/JS — no framework, no build tool |
-| **Pages** | `index.html`, `impressum.html`, `datenschutz.html` |
+| **Hosting** | Vercel (planned) |
+| **GitHub** | `jeffsangeni/bergmann-co-website` |
+| **Branch** | `v2-enhanced-animations` (active development) |
 | **Dev server** | `python3 -m http.server 8787` |
-| **Assets** | `assets/css/`, `assets/js/main.js`, `assets/images/` |
+
+### Pages
+
+| Page | Path | Indexed |
+|---|---|---|
+| `index.html` | `/` | Yes |
+| `impressum.html` | `/impressum` | Yes |
+| `datenschutz.html` | `/datenschutz` | Yes |
+| `erichjosephs.html` | `/erichjosephs` | No (`noindex, nofollow`) |
+| `marcusmueller.html` | `/marcusmueller` | No (`noindex, nofollow`) |
+| `mb.html` | `/mb` | No (`noindex, nofollow`) |
+
+### Assets
+
+| Directory | Contents |
+|---|---|
+| `assets/css/main.css` | Full design system, tokens, all component styles |
+| `assets/css/card.css` | Digital business card page styles |
+| `assets/js/main.js` | GSAP animations, lightbox, counters, particles, industry/feature anims, cursor glow |
+| `assets/images/` | Logos, headshots, textures |
+| `favicon.svg` | SVG favicon ("B" on dark rounded square) |
+| `vercel.json` | Clean URLs, security headers |
+| `robots.txt` | Blocks card pages from crawlers |
+| `sitemap.xml` | Public pages only |
 
 ---
 
-## Design Tokens (Do Not Change)
+## Design Tokens (Current)
 
 ```css
---color-dark:        #000000;   /* pure black — not charcoal */
---color-light:       #FFFFFF;
---color-mid:         #F4F4F4;   /* card/section backgrounds only */
---color-border:      #E8E8E8;
---color-accent:      #4d65ff;   /* focus outlines only */
---font-heading:      'Montserrat', sans-serif;   /* NOT Oswald */
---font-body:         'Lato', sans-serif;
+--color-dark:        #262527;
+--color-dark-80:     rgba(38, 37, 39, 0.80);
+--color-dark-60:     rgba(38, 37, 39, 0.60);
+--color-white:       #ffffff;
+--color-surface:     #fafafa;
+--color-border:      rgba(38, 37, 39, 0.08);
+--font-heading:      'Space Grotesk', sans-serif;
+--font-body:         'Inter', sans-serif;
 --nav-height:        72px;
---section-pad-v:     110px;
---section-pad-h:     64px;
---max-width:         1320px;
+--container-max:     1200px;
+--radius-sm/md/lg/xl: 8px / 12px / 16px / 20px;
 ```
 
 ---
 
 ## Architecture Rules
 
-**Fonts:** Montserrat (headings, 500–600 weight) + Lato (body, 300–400 weight). Loaded via Google Fonts CDN in `assets/css/fonts.css`. Never use Oswald — it was an error in an earlier version.
+**Fonts:** Space Grotesk (headings, 600–700 weight) + Inter (body, 400–500 weight). Loaded via Google Fonts CDN.
 
-**Animation stack:** GSAP 3 + ScrollTrigger + CustomEase + SplitType for `.skew-up` word reveals. Splide.js for mobile carousel. SmoothScroll for anchor scrolling.
+**Color palette:** White (`#ffffff`) + dark (`#262527`) as primary pair. Surface `#fafafa` for alternating sections. No pure black `#000000`.
 
-**Page loader:** Pure black bg → white logo pulses (GSAP opacity 1→0.15→1, 2 cycles) → panel slides DOWN (`yPercent: 105`) to reveal site. Logo uses `filter: brightness(0) invert(1)` to force white from the black PNG source.
+**Animation stack:** GSAP 3 + ScrollTrigger + CustomEase. Feature card and industry card SVG animations are GSAP looping timelines (not CSS keyframes). Service card hover has cursor-following radial gradient glow via JS mousemove.
 
-**Hero section:** Text-only (no image element). Background: `bg-texture.jpeg` (concentric circles pattern, `background-position: right center`). Single-column flex layout, content centered vertically. Headline: Montserrat 600, `clamp(40px, 4.2vw, 64px)`.
+**Page loader:** Dark bg → white logo fades in → progress bar fills → loader fades out → hero animates in.
 
-**Services section:** 4-column alternating grid `[stacked images] [content card] [stacked images] [content card]`. Content cards: `background: #F4F4F4`, `border-radius: 12px`, `margin: 16px`. No outer border.
+**Section order:** Hero → Features/Capital Solutions (white) → Services (dark) → Process (white) → Industries (surface) → CTA Band (dark) → Footer (white).
 
-**CTA band ("Optimieren Sie Ihre Kapitalstruktur"):** `background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('../images/hero-graphic.webp')`. 2-column layout: heading left, tag + text right.
+**Hero section:** Text-only with animated orbs, grid overlay, particles. Badge label, headline with gradient accent, subtitle, 2 buttons, stats strip.
 
-**Process section:** 3-column: photo | numbered steps | photo. Photos use `aspect-ratio: 3/4`, `filter: grayscale(30%)`.
+**Services section:** Dark background (`--color-dark`). Two side-by-side cards with white text. Cursor-following glow on hover (not animated border).
+
+**Process section:** Vertical timeline with numbered markers (01–05). Line fills on scroll via ScrollTrigger scrub.
+
+**Industries section:** 4 cards with GSAP-animated SVG illustrations (bar chart, buildings, yield curve, network graph). All loop automatically.
+
+**CTA band:** Dark bg, 2-column layout: heading/text left, inline contact form right.
+
+**Contact lightbox:** Opens via `.js-open-lightbox` class on any CTA button. Backdrop blur, form with firstName/lastName/email/company/message.
+
+**Digital card pages:** Standalone pages (no GSAP, no loader). Max-width 480px centered. Avatar, vCard download, about text, website link, 6 contact links. Uses `card.css`.
 
 ---
 
@@ -255,16 +135,12 @@ Our existing token system is in `assets/css/main.css` under `:root {}`. Use this
 
 | File | Used In | Notes |
 |---|---|---|
-| `logo-black.png` | Nav | Light bg contexts |
-| `logo-white.png` | Loader, Footer | Dark bg contexts |
-| `bg-texture.jpeg` | Hero background | Concentric circles — `background-position: right center` |
-| `hero-graphic.webp` | CTA band background | Dark overlay `rgba(0,0,0,0.8)` |
-| `cta-texture.png` | Services: Service 1 top image | Hestia building photo |
-| `process-right.jpeg` | Services: Service 1 bottom image | Portrait/office photo |
-| `service-extra.png` | Services: Service 2 top image | Architectural interior |
-| `service-leveraged.jpeg` | Services: Service 2 bottom image | Office/finance photo |
-| `service-debt.png` | Process section: LEFT photo | Group of professionals |
-| `process-left.jpeg` | Process section: RIGHT photo | Building exterior |
+| `logo-black.png` | Nav, footer, card pages | Light bg contexts |
+| `logo-white.png` | Loader | Dark bg contexts |
+| `bg-texture.jpeg` | Not currently used | Available for future use |
+| `ej-headshot.jpeg` | `/erichjosephs` card page | Erich Josephs profile photo |
+| `mm-headshot.jpeg` | `/marcusmueller` card page | Marcus Mueller profile photo |
+| `mb-headshot.jpg` | `/mb` card page | Maximilian Bergmann profile photo |
 
 ---
 
@@ -272,20 +148,20 @@ Our existing token system is in `assets/css/main.css` under `:root {}`. Use this
 
 | Breakpoint | Changes |
 |---|---|
-| `≤991px` | Nav collapses to burger, services stack to 1-column (images side-by-side), process hides photos |
-| `≤767px` | Industries switches to Splide carousel, smaller padding |
-| `≤479px` | Cookie banner becomes bottom sheet, hero headline reduces to 36px |
+| `≤991px` | Nav collapses to burger, features/services stack to 1-column, industries to 2-column grid |
+| `≤767px` | Industries to 1-column, footer nav gap reduces, form rows stack |
+| `≤479px` | Hero badge shrinks to 10px, stats become 3-column grid, buttons go full-width, footer stacks vertically |
 
 ---
 
 ## Critical Anti-Patterns (Never Do)
 
-- Do not use `Oswald` font — it was a mistake. Always `Montserrat` for headings
-- Do not add a decorative image to the hero section — it is intentionally text-only
-- Do not center the CTA band content — it is a 2-column left/right layout
-- Do not use `bg-texture.jpeg` in the CTA band — that image goes in the hero
-- Do not use `hero-graphic.webp` as a visible `<img>` anywhere — it is a CSS background only
-- Do not use `service-debt.png` in services — it goes in the process section
-- Do not use `cta-texture.png` in the process section — it goes in services (service 1 top)
+- Do not use `Montserrat`, `Lato`, or `Oswald` fonts — the rebrand uses Space Grotesk + Inter
+- Do not use pure black `#000000` — the brand color is `#262527`
+- Do not add CSS keyframe animations for feature/industry card SVGs — they use GSAP timelines
+- Do not use animated rotating border on service cards — it was replaced with cursor-following glow
+- Do not add a green pulsing dot to the hero badge — it was removed
 - Do not animate `width`, `height`, `top`, or `left` — GSAP uses `transform`/`opacity` only
-- Do not use charcoal (`#27313D`) — the brand color is pure black `#000000`
+- Do not add images to the hero section — it is intentionally text-only with abstract orbs/particles
+- Do not center the CTA band content — it is a 2-column left/right layout
+- Do not add the card pages to `sitemap.xml` or remove their `noindex` — they are private digital business cards

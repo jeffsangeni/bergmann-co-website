@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!container) return;
 
     const isMobile = window.innerWidth <= 767;
-    const count = isMobile ? 21 : 35;
+    const count = isMobile ? 21 : 25;
     for (let i = 0; i < count; i++) {
       const particle = document.createElement('div');
       particle.className = 'hero__particle';

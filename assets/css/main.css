@@ -545,8 +545,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(38, 37, 39, 0.033) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(38, 37, 39, 0.033) 1px, transparent 1px);
+    linear-gradient(rgba(38, 37, 39, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(38, 37, 39, 0.08) 1px, transparent 1px);
   background-size: 80px 80px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);

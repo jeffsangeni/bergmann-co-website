@@ -568,11 +568,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!steps.length || !lineFill) return;
 
+    const isMobile = window.innerWidth <= 767;
+
     ScrollTrigger.create({
       trigger: '.process__timeline',
-      start: 'top 70%',
-      end: 'bottom 50%',
-      scrub: 0.5,
+      start: isMobile ? 'top 85%' : 'top 70%',
+      end: isMobile ? 'bottom 20%' : 'bottom 50%',
+      scrub: isMobile ? true : 0.5,
       onUpdate: (self) => {
         lineFill.style.height = `${self.progress * 100}%`;
 

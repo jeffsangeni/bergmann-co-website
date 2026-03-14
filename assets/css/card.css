@@ -1,0 +1,265 @@
+/* ============================================================
+   BERGMANN & CO. — Digital Business Card Styles
+   ============================================================ */
+
+.card-page {
+  background: var(--color-surface);
+  min-height: 100vh;
+}
+
+.card-wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.card-container {
+  flex: 1;
+}
+
+/* Logo */
+.card-logo {
+  display: block;
+  margin-bottom: 40px;
+}
+
+.card-logo__img {
+  height: 28px;
+  width: auto;
+}
+
+/* Profile */
+.card-profile {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.card-profile__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 3px solid var(--color-white);
+  box-shadow: 0 8px 32px rgba(38, 37, 39, 0.1);
+}
+
+.card-profile__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-profile__name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: -0.025em;
+  color: var(--color-dark);
+  margin-bottom: 4px;
+}
+
+.card-profile__role {
+  font-size: 14px;
+  font-weight: 450;
+  color: var(--color-dark-60);
+  letter-spacing: 0.01em;
+}
+
+/* vCard button */
+.card-vcard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 24px;
+  background: var(--color-dark);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: var(--radius-md);
+  transition: all 0.3s var(--ease-out);
+  margin-bottom: 32px;
+}
+
+.card-vcard:hover {
+  background: #3d3a40;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(38, 37, 39, 0.2);
+}
+
+/* About section */
+.card-about {
+  margin-bottom: 24px;
+}
+
+.card-about__title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-dark-40);
+  margin-bottom: 8px;
+}
+
+.card-about__text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-dark-60);
+}
+
+/* Contact links */
+.card-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all 0.3s var(--ease-out);
+}
+
+.card-link:hover {
+  border-color: var(--color-dark-10);
+  box-shadow: 0 4px 16px rgba(38, 37, 39, 0.06);
+  transform: translateY(-1px);
+}
+
+.card-link--website {
+  margin-bottom: 16px;
+  background: var(--color-dark);
+  border-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.card-link--website:hover {
+  background: #3d3a40;
+  border-color: #3d3a40;
+  box-shadow: 0 4px 16px rgba(38, 37, 39, 0.15);
+}
+
+.card-link--website .card-link__icon {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+}
+
+.card-link--website .card-link__label {
+  color: var(--color-white-60);
+}
+
+.card-link--website .card-link__value {
+  color: var(--color-white);
+}
+
+.card-link--website .card-link__arrow {
+  color: var(--color-white-40);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.card-link__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-dark-60);
+}
+
+.card-link__content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.card-link__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-dark-40);
+  margin-bottom: 1px;
+}
+
+.card-link__value {
+  font-size: 14px;
+  font-weight: 450;
+  color: var(--color-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Contact grid */
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Footer */
+.card-footer {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 8px;
+}
+
+.card-footer__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.card-footer__links a {
+  font-size: 12px;
+  color: var(--color-dark-40);
+  transition: color 0.25s;
+}
+
+.card-footer__links a:hover {
+  color: var(--color-dark);
+}
+
+.card-footer__dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-dark-10);
+}
+
+.card-footer__copy {
+  font-size: 11px;
+  color: var(--color-dark-40);
+}
+
+/* Responsive */
+@media (max-width: 479px) {
+  .card-wrapper {
+    padding: 24px 16px;
+  }
+
+  .card-profile__avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card-profile__name {
+    font-size: 22px;
+  }
+
+  .card-link__value {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /erichjosephs
+Disallow: /marcusmueller
+Disallow: /mb
+
+Sitemap: https://bergmann-co.com/sitemap.xml

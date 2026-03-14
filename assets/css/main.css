@@ -1485,6 +1485,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 @media (max-width: 479px) {
   .hero { padding-top: calc(var(--nav-height) + 24px); }
 
+  .hero__badge {
+    font-size: 10px;
+    padding: 6px 12px;
+    letter-spacing: 0.03em;
+  }
+
   .hero__actions {
     flex-direction: column;
     width: 100%;
@@ -1493,6 +1499,31 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   .hero__actions .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 16px 12px;
+    text-align: center;
+  }
+
+  .hero__stat-value {
+    font-size: 22px;
+  }
+
+  .hero__stat-suffix {
+    font-size: 13px;
+  }
+
+  .hero__stat-label {
+    font-size: 9px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero__stat-divider {
+    display: none;
   }
 
   .service-card__inner { padding: 32px 24px; }

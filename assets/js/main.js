@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
           initCounters();
           createParticles();
           initCursorGlow();
+          initFeatureAnims();
           initIndustryAnims();
         }
       });
@@ -235,6 +236,115 @@ document.addEventListener('DOMContentLoaded', () => {
         glowInner.style.top = y + 'px';
       });
     });
+  }
+
+  // ---- FEATURE CARD ANIMATIONS (GSAP, looping) ----
+  function initFeatureAnims() {
+    // --- Alternativen: branching paths draw out from source ---
+    const fiSource = document.querySelector('.fi-source');
+    const fiPaths = document.querySelectorAll('.fi-path');
+    const fiEnds = document.querySelectorAll('.fi-end');
+
+    if (fiSource && fiPaths.length) {
+      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+
+      // Source pulses
+      tl.to(fiSource, { opacity: 0.4, attr: { r: 4 }, duration: 0.5, ease: 'power2.out' });
+
+      // Paths draw out staggered
+      fiPaths.forEach((p, i) => {
+        tl.to(p, {
+          strokeDashoffset: 0,
+          opacity: 0.35,
+          duration: 0.8,
+          ease: 'power2.inOut'
+        }, 0.3 + i * 0.15);
+      });
+
+      // End dots appear
+      fiEnds.forEach((e, i) => {
+        tl.to(e, { opacity: 0.4, duration: 0.4, ease: 'power2.out' }, 0.8 + i * 0.12);
+      });
+
+      // Hold
+      tl.to({}, { duration: 2 });
+
+      // Fade out
+      tl.to([fiSource, ...fiPaths, ...fiEnds], {
+        opacity: 0, duration: 0.8, ease: 'power2.inOut'
+      });
+      // Reset
+      tl.set(fiPaths, { strokeDashoffset: 60 }, '>');
+      tl.set(fiSource, { attr: { r: 3 }, opacity: 0.25 }, '<');
+      tl.set(fiEnds, { opacity: 0.15 }, '<');
+    }
+
+    // --- Strukturierte Produkte: tiles assemble ---
+    const fiTiles = document.querySelectorAll('.fi-tile');
+    const fiConns = document.querySelectorAll('.fi-conn');
+
+    if (fiTiles.length) {
+      const tl2 = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+
+      fiTiles.forEach((tile, i) => {
+        tl2.to(tile, {
+          opacity: 0.3,
+          attr: { 'fill-opacity': 0.08 },
+          duration: 0.5,
+          ease: 'power2.out'
+        }, i * 0.2);
+      });
+
+      fiConns.forEach((conn, i) => {
+        tl2.to(conn, { opacity: 0.25, duration: 0.4, ease: 'power2.out' }, 0.3 + i * 0.2);
+      });
+
+      tl2.to({}, { duration: 2 });
+
+      tl2.to([...fiTiles, ...fiConns], {
+        opacity: 0, duration: 0.8, ease: 'power2.inOut'
+      });
+      tl2.set(fiTiles, { opacity: 0.12, attr: { 'fill-opacity': 0.03 } }, '>');
+      tl2.set(fiConns, { opacity: 0.1 }, '<');
+    }
+
+    // --- Rückgang: decline line draws with dot sliding down ---
+    const fiDecline = document.querySelector('.fi-decline');
+    const fiDeclineDot = document.querySelector('.fi-decline-dot');
+    const fiArea = document.querySelector('.fi-area');
+
+    if (fiDecline) {
+      const tl3 = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+
+      tl3.to(fiDecline, {
+        strokeDashoffset: 0,
+        opacity: 0.35,
+        duration: 1.2,
+        ease: 'power2.inOut'
+      });
+
+      if (fiDeclineDot) {
+        tl3.to(fiDeclineDot, { opacity: 0.5, duration: 0.3 }, 0);
+        tl3.to(fiDeclineDot, {
+          attr: { cx: 56, cy: 48 },
+          duration: 1.2,
+          ease: 'power2.inOut'
+        }, 0);
+      }
+
+      if (fiArea) {
+        tl3.to(fiArea, { opacity: 0.04, duration: 0.6, ease: 'power2.out' }, 0.8);
+      }
+
+      tl3.to({}, { duration: 2 });
+
+      tl3.to([fiDecline, fiDeclineDot, fiArea].filter(Boolean), {
+        opacity: 0, duration: 0.8, ease: 'power2.inOut'
+      });
+      tl3.set(fiDecline, { strokeDashoffset: 70 }, '>');
+      if (fiDeclineDot) tl3.set(fiDeclineDot, { attr: { cx: 8, cy: 16 }, opacity: 0.3 }, '<');
+      if (fiArea) tl3.set(fiArea, { opacity: 0 }, '<');
+    }
   }
 
   // ---- INDUSTRY CARD ANIMATIONS (GSAP, looping) ----

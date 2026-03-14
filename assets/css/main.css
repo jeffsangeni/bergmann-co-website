@@ -414,7 +414,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   justify-content: space-between;
 }
 
-.nav__logo-img { height: 28px; width: auto; }
+.nav__logo-img { height: 35px; width: auto; }
 
 .nav__links {
   display: flex;
@@ -836,118 +836,29 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 /* Animated icons for feature cards */
 .feature-card__anim {
-  width: 64px;
-  height: 64px;
+  width: 77px;
+  height: 77px;
   margin-bottom: 24px;
   color: var(--color-dark);
 }
 
 .anim-icon {
-  width: 64px;
-  height: 64px;
+  width: 77px;
+  height: 77px;
 }
 
-/* --- Feature Card: Branching Paths (Alternativen) --- */
-.fi-source { animation: fi-pulse 3s ease-in-out infinite; }
-
-@keyframes fi-pulse {
-  0%, 100% { opacity: 0.15; r: 3; }
-  50% { opacity: 0.4; r: 4; }
-}
-
+/* --- Feature Card SVG initial states (GSAP-driven, see main.js) --- */
 .fi-path {
   stroke-dasharray: 60;
   stroke-dashoffset: 60;
 }
-.fi-path--1 { animation: fi-draw 3s ease-in-out infinite 0.2s; }
-.fi-path--2 { animation: fi-draw 3s ease-in-out infinite 0.4s; }
-.fi-path--3 { animation: fi-draw 3s ease-in-out infinite 0.6s; }
 
-@keyframes fi-draw {
-  0% { stroke-dashoffset: 60; opacity: 0.08; }
-  50% { stroke-dashoffset: 0; opacity: 0.35; }
-  100% { stroke-dashoffset: -60; opacity: 0.08; }
-}
-
-.fi-end { animation: fi-end-pulse 3s ease-in-out infinite; }
-.fi-end--1 { animation-delay: 1.2s; }
-.fi-end--2 { animation-delay: 1.4s; }
-.fi-end--3 { animation-delay: 1.6s; }
-
-@keyframes fi-end-pulse {
-  0%, 100% { opacity: 0.1; }
-  50% { opacity: 0.4; }
-}
-
-/* --- Feature Card: Grid Tiles (Strukturierte Produkte) --- */
-.fi-tile {
-  animation: fi-tile-pop 4s ease-in-out infinite;
-}
-.fi-tile--1 { animation-delay: 0s; }
-.fi-tile--2 { animation-delay: 0.5s; }
-.fi-tile--3 { animation-delay: 1s; }
-.fi-tile--4 { animation-delay: 1.5s; }
-.fi-tile--5 { animation: fi-tile-float 4s ease-in-out infinite 2s; }
-
-@keyframes fi-tile-pop {
-  0%, 100% { opacity: 0.1; fill-opacity: 0.02; }
-  40% { opacity: 0.3; fill-opacity: 0.08; }
-  60% { opacity: 0.3; fill-opacity: 0.08; }
-}
-
-@keyframes fi-tile-float {
-  0%, 100% { opacity: 0.06; transform: translate(0, 0); }
-  50% { opacity: 0.2; transform: translate(-4px, 2px); }
-}
-
-.fi-conn {
-  animation: fi-conn-flash 4s ease-in-out infinite;
-}
-.fi-conn--1 { animation-delay: 0.3s; }
-.fi-conn--2 { animation-delay: 0.8s; }
-.fi-conn--3 { animation-delay: 1.3s; }
-
-@keyframes fi-conn-flash {
-  0%, 100% { opacity: 0.05; }
-  50% { opacity: 0.25; }
-}
-
-/* --- Feature Card: Decline Line (Rückgang) --- */
 .fi-decline {
   stroke-dasharray: 70;
   stroke-dashoffset: 70;
-  animation: fi-decline-draw 4s ease-in-out infinite;
-}
-
-@keyframes fi-decline-draw {
-  0% { stroke-dashoffset: 70; opacity: 0.1; }
-  50% { stroke-dashoffset: 0; opacity: 0.35; }
-  80% { stroke-dashoffset: 0; opacity: 0.35; }
-  100% { stroke-dashoffset: 70; opacity: 0.1; }
-}
-
-.fi-decline-dot {
-  animation: fi-dot-slide 4s ease-in-out infinite;
-}
-
-@keyframes fi-dot-slide {
-  0% { cx: 8; cy: 16; opacity: 0.15; }
-  50% { cx: 56; cy: 48; opacity: 0.5; }
-  80% { cx: 56; cy: 48; opacity: 0.5; }
-  100% { cx: 8; cy: 16; opacity: 0.15; }
 }
 
 .fi-decline-bg { opacity: 0.04; }
-
-.fi-area {
-  animation: fi-area-fill 4s ease-in-out infinite;
-}
-
-@keyframes fi-area-fill {
-  0%, 100% { opacity: 0; }
-  50%, 80% { opacity: 0.04; }
-}
-
 .fi-base { opacity: 0.06; }
 
 .feature-card__title {
@@ -1456,7 +1367,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .footer__brand { max-width: 360px; }
 
 .footer__logo {
-  height: 24px;
+  height: 40px;
   width: auto;
   margin-bottom: 16px;
 }
@@ -1615,10 +1526,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
   .hero__scroll-line::after,
   .hero__badge-dot,
-  .hero__orb,
-  .fi-source, .fi-path, .fi-end,
-  .fi-tile, .fi-conn,
-  .fi-decline, .fi-decline-dot, .fi-area {
+  .hero__orb {
     animation: none;
   }
 }

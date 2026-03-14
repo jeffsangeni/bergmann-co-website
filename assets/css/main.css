@@ -836,83 +836,54 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 /* Animated icons for feature cards */
 .feature-card__anim {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 20px;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
   color: var(--color-dark);
 }
 
 .anim-icon {
-  width: 80px;
-  height: 80px;
+  width: 64px;
+  height: 64px;
 }
 
-/* Layers animation */
-.anim-icon__layer {
-  transition: all 0.5s var(--ease-out);
-}
+/* Layers icon */
+.anim-layer { transition: all 0.5s var(--ease-out); }
+.feature-card:hover .anim-layer--1 { transform: translateY(3px); opacity: 0.12; }
+.feature-card:hover .anim-layer--2 { opacity: 0.2; }
+.feature-card:hover .anim-layer--3 { transform: translateY(-3px); opacity: 0.3; }
+.anim-arrow { transition: all 0.5s var(--ease-out); }
+.feature-card:hover .anim-arrow { opacity: 0.35; transform: translateY(2px); }
 
-.feature-card:hover .anim-icon__layer--1 { transform: translateY(4px); opacity: 0.15; }
-.feature-card:hover .anim-icon__layer--2 { transform: translateY(0); opacity: 0.25; }
-.feature-card:hover .anim-icon__layer--3 { transform: translateY(-4px); opacity: 0.4; }
+/* Grid blocks icon */
+.anim-block { transition: all 0.5s var(--ease-out); }
+.feature-card:hover .anim-block--1 { opacity: 0.28; transform: translate(-1px, -1px); }
+.feature-card:hover .anim-block--2 { opacity: 0.28; transform: translate(1px, -1px); }
+.feature-card:hover .anim-block--3 { opacity: 0.28; transform: translate(-1px, 1px); }
+.feature-card:hover .anim-block--4 { opacity: 0.28; transform: translate(1px, 1px); }
+.anim-center-dot { transition: all 0.5s var(--ease-out); }
+.feature-card:hover .anim-center-dot { opacity: 0.3; }
 
-.anim-icon__dot { transition: all 0.6s var(--ease-out); }
-.feature-card:hover .anim-icon__dot--1 { transform: translateY(-4px); opacity: 0.8; }
-.feature-card:hover .anim-icon__dot--2 { transform: translate(-4px, -2px); opacity: 0.5; }
-.feature-card:hover .anim-icon__dot--3 { transform: translate(4px, -2px); opacity: 0.5; }
-.feature-card:hover .anim-icon__path { opacity: 0.4; }
-
-/* Grid blocks animation */
-.anim-icon__block { transition: all 0.5s var(--ease-out); }
-.feature-card:hover .anim-icon__block--1 { opacity: 0.35; transform: translate(-2px, -2px); }
-.feature-card:hover .anim-icon__block--2 { opacity: 0.35; transform: translate(2px, -2px); }
-.feature-card:hover .anim-icon__block--3 { opacity: 0.35; transform: translate(-2px, 2px); }
-.feature-card:hover .anim-icon__block--4 { opacity: 0.35; transform: translate(2px, 2px); }
-.feature-card:hover .anim-icon__conn { opacity: 0.3; }
-
-.anim-icon__pulse {
-  animation: pulse-icon 3s ease-in-out infinite;
-}
-
-@keyframes pulse-icon {
-  0%, 100% { r: 6; opacity: 0.08; }
-  50% { r: 10; opacity: 0.03; }
-}
-
-/* Wave animation */
-.anim-icon__wave { transition: all 0.5s var(--ease-out); }
-.anim-icon__wave--1 {
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-  animation: wave-draw 4s ease-in-out infinite;
+/* Wave icon */
+.anim-wave {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: wave-draw 5s ease-in-out infinite;
 }
 
 @keyframes wave-draw {
-  0% { stroke-dashoffset: 200; }
+  0% { stroke-dashoffset: 120; }
   50% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -200; }
+  100% { stroke-dashoffset: -120; }
 }
 
-.anim-icon__wave-dot {
-  animation: wave-pulse 2s ease-in-out infinite;
+.anim-wave-dot {
+  animation: wave-pulse 3s ease-in-out infinite;
 }
 
 @keyframes wave-pulse {
-  0%, 100% { r: 4; opacity: 0.3; }
-  50% { r: 6; opacity: 0.5; }
-}
-
-.anim-icon__wave-ring {
-  animation: ring-expand 3s ease-in-out infinite;
-}
-
-.anim-icon__wave-ring--2 {
-  animation-delay: -1.5s;
-}
-
-@keyframes ring-expand {
-  0%, 100% { opacity: 0.1; transform-origin: center; transform: scale(1); }
-  50% { opacity: 0.02; transform-origin: center; transform: scale(1.2); }
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.35; }
 }
 
 .feature-card__title {
@@ -955,6 +926,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  align-items: stretch;
 }
 
 /* Service card with animated border */
@@ -965,6 +937,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   overflow: hidden;
   transition: all 0.5s var(--ease-out);
   padding: 1px;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card::before {
@@ -1027,6 +1001,55 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   padding: 48px 40px;
   background: var(--color-white);
   border-radius: calc(var(--radius-xl) - 1px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card__text { flex: 0; }
+.service-card__features { flex: 1; }
+
+/* ---- SERVICES DARK VARIANT ---- */
+.services--dark {
+  background: var(--color-dark);
+}
+
+.section-title--light { color: var(--color-white); }
+.section-desc--light { color: var(--color-white-60); }
+
+.service-card--on-dark {
+  background: transparent;
+}
+
+.service-card--on-dark::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.service-card--on-dark .service-card__inner {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.service-card--on-dark .service-card__tag { color: var(--color-white-40); }
+.service-card--on-dark .service-card__title { color: var(--color-white); }
+.service-card--on-dark .service-card__text { color: var(--color-white-60); }
+.service-card--on-dark .service-card__feature { color: var(--color-white-80); }
+.service-card--on-dark .service-card__feature svg { color: var(--color-white-40); }
+.service-card--on-dark .service-card__cta { color: var(--color-white); }
+
+.service-card--on-dark .service-card__border-anim::before {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 60deg,
+    rgba(255, 255, 255, 0.2) 120deg,
+    rgba(255, 255, 255, 0.06) 180deg,
+    transparent 240deg,
+    transparent 360deg
+  );
+}
+
+.service-card--on-dark:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .service-card__tag {

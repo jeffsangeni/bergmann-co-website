@@ -146,7 +146,7 @@
 }
 
 .card-website:hover {
-  box-shadow: 0 4px 20px rgba(38, 37, 39, 0.06);
+  box-shadow: 0 4px 20px rgba(14, 14, 14, 0.06);
   transform: translateY(-1px);
 }
 
@@ -203,7 +203,7 @@
 .card-tile:hover {
   background: var(--color-dark-05);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(38, 37, 39, 0.06);
+  box-shadow: 0 4px 16px rgba(14, 14, 14, 0.06);
 }
 
 .card-tile__icon {
@@ -215,7 +215,7 @@
   align-items: center;
   justify-content: center;
   color: var(--color-dark);
-  box-shadow: 0 2px 8px rgba(38, 37, 39, 0.06);
+  box-shadow: 0 2px 8px rgba(14, 14, 14, 0.06);
 }
 
 .card-tile__label {

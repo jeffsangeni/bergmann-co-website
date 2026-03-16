@@ -40,24 +40,34 @@
         <img src="assets/images/logo-black.png" alt="Bergmann & Co." class="nav__logo-img">
       </a>
       <div class="nav__links">
-        <a href="/#services" class="nav__link">Dienstleistungen</a>
-        <a href="/#process" class="nav__link">Kundenprozess</a>
-        <a href="/#industries" class="nav__link">Branchen</a>
-        <a href="/" class="nav__link nav__link--cta">Kontakt</a>
+        <a href="/#services" class="nav__link" data-i18n="nav.services">Dienstleistungen</a>
+        <a href="/#process" class="nav__link" data-i18n="nav.process">Kundenprozess</a>
+        <a href="/#industries" class="nav__link" data-i18n="nav.industries">Branchen</a>
+        <a href="/" class="nav__link nav__link--cta" data-i18n="nav.contact">Kontakt</a>
+        <div class="lang-switch">
+          <button class="lang-switch__btn is-active" data-lang="de">DE</button>
+          <button class="lang-switch__btn" data-lang="en">EN</button>
+        </div>
       </div>
-      <button class="nav__burger" id="navBurger" aria-label="Menü öffnen">
-        <span></span>
-        <span></span>
-      </button>
+      <div class="nav__right-mobile">
+        <div class="lang-switch lang-switch--mobile">
+          <button class="lang-switch__btn is-active" data-lang="de">DE</button>
+          <button class="lang-switch__btn" data-lang="en">EN</button>
+        </div>
+        <button class="nav__burger" id="navBurger" data-i18n-aria="nav.burger_label" aria-label="Menü öffnen">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu__inner">
-      <a href="/#services" class="mobile-menu__link">Dienstleistungen</a>
-      <a href="/#process" class="mobile-menu__link">Kundenprozess</a>
-      <a href="/#industries" class="mobile-menu__link">Branchen</a>
-      <a href="/" class="mobile-menu__link">Kontakt</a>
+      <a href="/#services" class="mobile-menu__link" data-i18n="nav.services">Dienstleistungen</a>
+      <a href="/#process" class="mobile-menu__link" data-i18n="nav.process">Kundenprozess</a>
+      <a href="/#industries" class="mobile-menu__link" data-i18n="nav.industries">Branchen</a>
+      <a href="/" class="mobile-menu__link" data-i18n="nav.contact">Kontakt</a>
     </div>
   </div>
 
@@ -65,126 +75,126 @@
     <div class="legal__container">
       <a href="/" class="legal__back">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12.67 8H3.33M7.33 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Zurück zur Startseite
+        <span data-i18n="legal.back">Zurück zur Startseite</span>
       </a>
-      <h1 class="legal__title">Datenschutzerklärung</h1>
+      <h1 class="legal__title" data-i18n="legal.datenschutz_title">Datenschutzerklärung</h1>
 
-      <h2 class="legal__number">1. Datenschutz auf einen Blick</h2>
+      <h2 class="legal__number" data-i18n="datenschutz.num1">1. Datenschutz auf einen Blick</h2>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Allgemeine Hinweise</h3>
-        <p class="legal__text">Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s1_heading">Allgemeine Hinweise</h3>
+        <p class="legal__text" data-i18n="datenschutz.s1_text">Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Datenerfassung auf unserer Website</h3>
-        <h4 class="legal__subheading">Wer ist verantwortlich für die Datenerfassung?</h4>
-        <p class="legal__text">Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s2_heading">Datenerfassung auf unserer Website</h3>
+        <h4 class="legal__subheading" data-i18n="datenschutz.s2a_subheading">Wer ist verantwortlich für die Datenerfassung?</h4>
+        <p class="legal__text" data-i18n="datenschutz.s2a_text">Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
 
-        <h4 class="legal__subheading">Wie erfassen wir Ihre Daten?</h4>
-        <p class="legal__text">Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen, z.B. über ein Kontaktformular. Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).</p>
+        <h4 class="legal__subheading" data-i18n="datenschutz.s2b_subheading">Wie erfassen wir Ihre Daten?</h4>
+        <p class="legal__text" data-i18n="datenschutz.s2b_text">Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen, z.B. über ein Kontaktformular. Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).</p>
 
-        <h4 class="legal__subheading">Wofür nutzen wir Ihre Daten?</h4>
-        <p class="legal__text">Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+        <h4 class="legal__subheading" data-i18n="datenschutz.s2c_subheading">Wofür nutzen wir Ihre Daten?</h4>
+        <p class="legal__text" data-i18n="datenschutz.s2c_text">Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
 
-        <h4 class="legal__subheading">Welche Rechte haben Sie bezüglich Ihrer Daten?</h4>
-        <p class="legal__text">Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
+        <h4 class="legal__subheading" data-i18n="datenschutz.s2d_subheading">Welche Rechte haben Sie bezüglich Ihrer Daten?</h4>
+        <p class="legal__text" data-i18n="datenschutz.s2d_text">Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Analyse-Tools und Drittanbieter-Tools</h3>
-        <p class="legal__text">Beim Besuch unserer Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das geschieht vor allem mit Cookies und mit sogenannten Analyseprogrammen. Die Analyse Ihres Surf-Verhaltens erfolgt in der Regel anonym. Sie können dieser Analyse widersprechen.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s3_heading">Analyse-Tools und Drittanbieter-Tools</h3>
+        <p class="legal__text" data-i18n="datenschutz.s3_text">Beim Besuch unserer Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das geschieht vor allem mit Cookies und mit sogenannten Analyseprogrammen. Die Analyse Ihres Surf-Verhaltens erfolgt in der Regel anonym. Sie können dieser Analyse widersprechen.</p>
       </div>
 
-      <h2 class="legal__number">2. Allgemeine Hinweise und Pflichtinformationen</h2>
+      <h2 class="legal__number" data-i18n="datenschutz.num2">2. Allgemeine Hinweise und Pflichtinformationen</h2>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Datenschutz</h3>
-        <p class="legal__text">Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s4_heading">Datenschutz</h3>
+        <p class="legal__text" data-i18n="datenschutz.s4_text">Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Verantwortliche Stelle</h3>
-        <p class="legal__text">
+        <h3 class="legal__heading" data-i18n="datenschutz.s5_heading">Verantwortliche Stelle</h3>
+        <p class="legal__text" data-i18n="datenschutz.s5_text">
           HESTIA Asset Development GmbH<br>
           Taunusanlage 9-10<br>
           60329 Frankfurt<br>
           Germany
         </p>
-        <p class="legal__text">Geschäftsführer: Maximilian Bergmann</p>
+        <p class="legal__text" data-i18n="datenschutz.s5_director">Geschäftsführer: Maximilian Bergmann</p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
-        <p class="legal__text">Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail an uns. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s6_heading">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+        <p class="legal__text" data-i18n="datenschutz.s6_text">Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail an uns. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
-        <p class="legal__text">Im Falle datenschutzrechtlicher Verstöße steht dem Betroffenen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Eine Liste der Datenschutzbeauftragten finden Sie unter: <a href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html" target="_blank" rel="noopener">www.bfdi.bund.de</a></p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s7_heading">Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
+        <p class="legal__text" data-i18n="datenschutz.s7_text">Im Falle datenschutzrechtlicher Verstöße steht dem Betroffenen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Eine Liste der Datenschutzbeauftragten finden Sie unter: <a href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html" target="_blank" rel="noopener">www.bfdi.bund.de</a></p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Recht auf Datenübertragbarkeit</h3>
-        <p class="legal__text">Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s8_heading">Recht auf Datenübertragbarkeit</h3>
+        <p class="legal__text" data-i18n="datenschutz.s8_text">Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen.</p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">SSL- bzw. TLS-Verschlüsselung</h3>
-        <p class="legal__text">Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s9_heading">SSL- bzw. TLS-Verschlüsselung</h3>
+        <p class="legal__text" data-i18n="datenschutz.s9_text">Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Auskunft, Sperrung, Löschung</h3>
-        <p class="legal__text">Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s10_heading">Auskunft, Sperrung, Löschung</h3>
+        <p class="legal__text" data-i18n="datenschutz.s10_text">Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.</p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Widerspruch gegen Werbe-Mails</h3>
-        <p class="legal__text">Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen vor.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s11_heading">Widerspruch gegen Werbe-Mails</h3>
+        <p class="legal__text" data-i18n="datenschutz.s11_text">Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen vor.</p>
       </div>
 
-      <h2 class="legal__number">3. Datenerfassung auf unserer Website</h2>
+      <h2 class="legal__number" data-i18n="datenschutz.num3">3. Datenerfassung auf unserer Website</h2>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Cookies</h3>
-        <p class="legal__text">Unsere Internetseiten verwenden teilweise sogenannte Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert.</p>
-        <p class="legal__text">Die meisten der von uns verwendeten Cookies sind sogenannte „Session-Cookies". Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies bleiben auf Ihrem Endgerät gespeichert bis Sie diese löschen. Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden.</p>
-        <p class="legal__text">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
-      </div>
-
-      <div class="legal__section">
-        <h3 class="legal__heading">Server-Log-Dateien</h3>
-        <p class="legal__text">Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse.</p>
-        <p class="legal__text">Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s12_heading">Cookies</h3>
+        <p class="legal__text" data-i18n="datenschutz.s12_text1">Unsere Internetseiten verwenden teilweise sogenannte Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert.</p>
+        <p class="legal__text" data-i18n="datenschutz.s12_text2">Die meisten der von uns verwendeten Cookies sind sogenannte „Session-Cookies". Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies bleiben auf Ihrem Endgerät gespeichert bis Sie diese löschen. Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden.</p>
+        <p class="legal__text" data-i18n="datenschutz.s12_text3">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Kontaktformular</h3>
-        <p class="legal__text">Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-        <p class="legal__text">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Die Daten werden gelöscht, sobald der Zweck der Speicherung entfällt. Gesetzliche Aufbewahrungsfristen bleiben unberührt.</p>
-      </div>
-
-      <h2 class="legal__number">4. Analyse-Tools und Werbung</h2>
-
-      <div class="legal__section">
-        <h3 class="legal__heading">Google Analytics</h3>
-        <p class="legal__text">Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Google Analytics verwendet sogenannte „Cookies". Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.</p>
-        <p class="legal__text">Die IP-Anonymisierung ist auf dieser Website aktiv. Ihre IP-Adresse wird von Google innerhalb von Mitgliedstaaten der EU oder des EWR zuvor gekürzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
-        <p class="legal__text">Sie können die Erfassung durch Google Analytics verhindern, indem Sie das Browser-Add-on herunterladen: <a href="https://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a></p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s13_heading">Server-Log-Dateien</h3>
+        <p class="legal__text" data-i18n="datenschutz.s13_text1">Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse.</p>
+        <p class="legal__text" data-i18n="datenschutz.s13_text2">Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
       </div>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Google reCAPTCHA</h3>
-        <p class="legal__text">Wir nutzen Google reCAPTCHA zum Schutz vor Bots. Es prüft, ob die Dateneingabe durch einen Menschen oder durch ein automatisiertes Programm erfolgt. Dabei werden verschiedene Informationen wie IP-Adresse, Verweildauer und Mausbewegungen analysiert. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s14_heading">Kontaktformular</h3>
+        <p class="legal__text" data-i18n="datenschutz.s14_text1">Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+        <p class="legal__text" data-i18n="datenschutz.s14_text2">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Die Daten werden gelöscht, sobald der Zweck der Speicherung entfällt. Gesetzliche Aufbewahrungsfristen bleiben unberührt.</p>
       </div>
 
-      <h2 class="legal__number">5. Plugins und Tools</h2>
+      <h2 class="legal__number" data-i18n="datenschutz.num4">4. Analyse-Tools und Werbung</h2>
 
       <div class="legal__section">
-        <h3 class="legal__heading">Google Web Fonts</h3>
-        <p class="legal__text">Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten sogenannte Web Fonts, die von Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in Ihren Browsercache. Dabei wird Ihre IP-Adresse an Google übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
-        <p class="legal__text">Weitere Informationen: <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener">https://developers.google.com/fonts/faq</a></p>
+        <h3 class="legal__heading" data-i18n="datenschutz.s15_heading">Google Analytics</h3>
+        <p class="legal__text" data-i18n="datenschutz.s15_text1">Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Google Analytics verwendet sogenannte „Cookies". Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.</p>
+        <p class="legal__text" data-i18n="datenschutz.s15_text2">Die IP-Anonymisierung ist auf dieser Website aktiv. Ihre IP-Adresse wird von Google innerhalb von Mitgliedstaaten der EU oder des EWR zuvor gekürzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <p class="legal__text" data-i18n="datenschutz.s15_text3">Sie können die Erfassung durch Google Analytics verhindern, indem Sie das Browser-Add-on herunterladen: <a href="https://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a></p>
+      </div>
+
+      <div class="legal__section">
+        <h3 class="legal__heading" data-i18n="datenschutz.s16_heading">Google reCAPTCHA</h3>
+        <p class="legal__text" data-i18n="datenschutz.s16_text">Wir nutzen Google reCAPTCHA zum Schutz vor Bots. Es prüft, ob die Dateneingabe durch einen Menschen oder durch ein automatisiertes Programm erfolgt. Dabei werden verschiedene Informationen wie IP-Adresse, Verweildauer und Mausbewegungen analysiert. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+      </div>
+
+      <h2 class="legal__number" data-i18n="datenschutz.num5">5. Plugins und Tools</h2>
+
+      <div class="legal__section">
+        <h3 class="legal__heading" data-i18n="datenschutz.s17_heading">Google Web Fonts</h3>
+        <p class="legal__text" data-i18n="datenschutz.s17_text1">Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten sogenannte Web Fonts, die von Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in Ihren Browsercache. Dabei wird Ihre IP-Adresse an Google übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <p class="legal__text" data-i18n="datenschutz.s17_text2">Weitere Informationen: <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener">https://developers.google.com/fonts/faq</a></p>
       </div>
 
     </div>
@@ -195,30 +205,31 @@
       <div class="footer__top">
         <div class="footer__brand">
           <img src="assets/images/logo-black.png" alt="Bergmann & Co." class="footer__logo">
-          <p class="footer__desc">Innovative Capital & Financing Solutions. Wir unterstützen Unternehmen bei der Strukturierung, Beschaffung und Optimierung von Kapital.</p>
+          <p class="footer__desc" data-i18n="footer.desc">Innovative Capital & Financing Solutions. Wir unterstützen Unternehmen bei der Strukturierung, Beschaffung und Optimierung von Kapital.</p>
         </div>
         <div class="footer__nav">
           <div class="footer__col">
-            <h4 class="footer__col-title">Navigation</h4>
-            <a href="/" class="footer__link">Home</a>
-            <a href="/#services" class="footer__link">Dienstleistungen</a>
-            <a href="/#process" class="footer__link">Kundenprozess</a>
-            <a href="/#industries" class="footer__link">Branchen</a>
+            <h4 class="footer__col-title" data-i18n="footer.nav_title">Navigation</h4>
+            <a href="/" class="footer__link" data-i18n="footer.home">Home</a>
+            <a href="/#services" class="footer__link" data-i18n="footer.services">Dienstleistungen</a>
+            <a href="/#process" class="footer__link" data-i18n="footer.process">Kundenprozess</a>
+            <a href="/#industries" class="footer__link" data-i18n="footer.industries">Branchen</a>
           </div>
           <div class="footer__col">
-            <h4 class="footer__col-title">Rechtliches</h4>
-            <a href="/impressum" class="footer__link">Impressum</a>
-            <a href="/datenschutz" class="footer__link">Datenschutz</a>
+            <h4 class="footer__col-title" data-i18n="footer.legal_title">Rechtliches</h4>
+            <a href="/impressum" class="footer__link" data-i18n="footer.impressum">Impressum</a>
+            <a href="/datenschutz" class="footer__link" data-i18n="footer.datenschutz">Datenschutz</a>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
-        <span class="footer__copy">&copy; 2026 Bergmann & Co. Alle Rechte vorbehalten.</span>
+        <span class="footer__copy" data-i18n="footer.copy">&copy; 2026 Bergmann & Co. Alle Rechte vorbehalten.</span>
         <a href="mailto:info@bergmann-co.com" class="footer__email">info@bergmann-co.com</a>
       </div>
     </div>
   </footer>
 
+  <script src="assets/js/lang.js"></script>
   <script>
     const burger = document.getElementById('navBurger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -228,13 +239,13 @@
       document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
     });
   </script>
-  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie-Einstellungen">
+  <div class="cookie-banner" id="cookieBanner" role="region" data-i18n-aria="cookie.modal_title" aria-label="Cookie-Einstellungen">
     <div class="cookie-banner__inner">
-      <p class="cookie-banner__text">Wir verwenden Cookies, um die Website zu betreiben, die Nutzung zu analysieren und relevante Inhalte bereitzustellen. Weitere Informationen finden Sie in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+      <p class="cookie-banner__text" data-i18n="cookie.banner_text">Wir verwenden Cookies, um die Website zu betreiben, die Nutzung zu analysieren und relevante Inhalte bereitzustellen. Weitere Informationen finden Sie in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
       <div class="cookie-banner__actions">
-        <button class="ck-btn ck-btn--accept" id="cookieAcceptAll">Alle akzeptieren</button>
-        <button class="ck-btn ck-btn--deny" id="cookieDeny">Ablehnen</button>
-        <button class="ck-btn ck-btn--text" id="cookieSettings">Einstellungen</button>
+        <button class="ck-btn ck-btn--accept" id="cookieAcceptAll" data-i18n="cookie.accept_all">Alle akzeptieren</button>
+        <button class="ck-btn ck-btn--deny" id="cookieDeny" data-i18n="cookie.deny">Ablehnen</button>
+        <button class="ck-btn ck-btn--text" id="cookieSettings" data-i18n="cookie.settings">Einstellungen</button>
       </div>
     </div>
   </div>
@@ -242,42 +253,42 @@
   <div class="cookie-modal" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
     <div class="cookie-modal__backdrop" id="cookieModalBackdrop"></div>
     <div class="cookie-modal__card">
-      <button class="cookie-modal__close" id="cookieModalClose" aria-label="Schließen">
+      <button class="cookie-modal__close" id="cookieModalClose" data-i18n-aria="lightbox.close" aria-label="Schließen">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </button>
-      <h2 class="cookie-modal__title" id="cookieModalTitle">Cookie-Einstellungen</h2>
-      <p class="cookie-modal__desc">Wählen Sie, welche Cookies Sie zulassen möchten. Notwendige Cookies sind immer aktiv, da sie für den Betrieb der Website erforderlich sind. Weitere Informationen in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+      <h2 class="cookie-modal__title" id="cookieModalTitle" data-i18n="cookie.modal_title">Cookie-Einstellungen</h2>
+      <p class="cookie-modal__desc" data-i18n="cookie.modal_desc">Wählen Sie, welche Cookies Sie zulassen möchten. Notwendige Cookies sind immer aktiv, da sie für den Betrieb der Website erforderlich sind. Weitere Informationen in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
       <div class="cookie-category">
         <div class="cookie-category__header">
-          <span class="cookie-category__name">Notwendig</span>
-          <span class="cookie-category__always">Immer aktiv</span>
+          <span class="cookie-category__name" data-i18n="cookie.necessary">Notwendig</span>
+          <span class="cookie-category__always" data-i18n="cookie.always_active">Immer aktiv</span>
         </div>
-        <p class="cookie-category__desc">Diese Cookies sind für das ordnungsgemäße Funktionieren der Website erforderlich und können nicht deaktiviert werden.</p>
+        <p class="cookie-category__desc" data-i18n="cookie.necessary_desc">Diese Cookies sind für das ordnungsgemäße Funktionieren der Website erforderlich und können nicht deaktiviert werden.</p>
       </div>
       <div class="cookie-category">
         <div class="cookie-category__header">
-          <span class="cookie-category__name">Analyse</span>
-          <label class="cookie-toggle" aria-label="Analyse-Cookies"><input type="checkbox" id="ck-analytics"><span class="cookie-toggle__track"></span></label>
+          <span class="cookie-category__name" data-i18n="cookie.analytics">Analyse</span>
+          <label class="cookie-toggle" aria-label="Analytics"><input type="checkbox" id="ck-analytics"><span class="cookie-toggle__track"></span></label>
         </div>
-        <p class="cookie-category__desc">Helfen uns zu verstehen, wie Besucher mit der Website interagieren, um die Nutzererfahrung kontinuierlich zu verbessern.</p>
+        <p class="cookie-category__desc" data-i18n="cookie.analytics_desc">Helfen uns zu verstehen, wie Besucher mit der Website interagieren, um die Nutzererfahrung kontinuierlich zu verbessern.</p>
       </div>
       <div class="cookie-category">
         <div class="cookie-category__header">
-          <span class="cookie-category__name">Marketing</span>
-          <label class="cookie-toggle" aria-label="Marketing-Cookies"><input type="checkbox" id="ck-marketing"><span class="cookie-toggle__track"></span></label>
+          <span class="cookie-category__name" data-i18n="cookie.marketing">Marketing</span>
+          <label class="cookie-toggle" aria-label="Marketing"><input type="checkbox" id="ck-marketing"><span class="cookie-toggle__track"></span></label>
         </div>
-        <p class="cookie-category__desc">Werden verwendet, um Ihnen relevante Werbeinhalte basierend auf Ihren Interessen anzuzeigen.</p>
+        <p class="cookie-category__desc" data-i18n="cookie.marketing_desc">Werden verwendet, um Ihnen relevante Werbeinhalte basierend auf Ihren Interessen anzuzeigen.</p>
       </div>
       <div class="cookie-category">
         <div class="cookie-category__header">
-          <span class="cookie-category__name">Personalisierung</span>
-          <label class="cookie-toggle" aria-label="Personalisierungs-Cookies"><input type="checkbox" id="ck-personalization"><span class="cookie-toggle__track"></span></label>
+          <span class="cookie-category__name" data-i18n="cookie.personalization">Personalisierung</span>
+          <label class="cookie-toggle" aria-label="Personalization"><input type="checkbox" id="ck-personalization"><span class="cookie-toggle__track"></span></label>
         </div>
-        <p class="cookie-category__desc">Ermöglichen es der Website, sich an Ihre Präferenzen zu erinnern und ein personalisiertes Erlebnis zu bieten.</p>
+        <p class="cookie-category__desc" data-i18n="cookie.personalization_desc">Ermöglichen es der Website, sich an Ihre Präferenzen zu erinnern und ein personalisiertes Erlebnis zu bieten.</p>
       </div>
       <div class="cookie-modal__actions">
-        <button class="ck-btn ck-btn--dark" id="cookieModalAcceptAll">Alle akzeptieren</button>
-        <button class="ck-btn ck-btn--outline" id="cookieModalSave">Auswahl speichern</button>
+        <button class="ck-btn ck-btn--dark" id="cookieModalAcceptAll" data-i18n="cookie.accept_all">Alle akzeptieren</button>
+        <button class="ck-btn ck-btn--outline" id="cookieModalSave" data-i18n="cookie.save_selection">Auswahl speichern</button>
       </div>
     </div>
   </div>

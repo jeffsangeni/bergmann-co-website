@@ -48,38 +48,38 @@
     <div class="lightbox__backdrop"></div>
     <div class="lightbox__container">
       <div class="lightbox__card">
-        <button class="lightbox__close" id="lightboxClose" aria-label="Schließen">
+        <button class="lightbox__close" id="lightboxClose" data-i18n-aria="lightbox.close">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </button>
         <div class="lightbox__header">
-          <h3 class="lightbox__title">Kontaktieren Sie uns</h3>
-          <p class="lightbox__subtitle">Ihr Expertenteam für maßgeschneiderte Finanzstrategien</p>
+          <h3 class="lightbox__title" data-i18n="lightbox.title">Kontaktieren Sie uns</h3>
+          <p class="lightbox__subtitle" data-i18n="lightbox.subtitle">Ihr Expertenteam für maßgeschneiderte Finanzstrategien</p>
         </div>
         <form class="lightbox__form" id="contactForm">
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="firstName">Vorname</label>
-              <input class="form-input" type="text" id="firstName" name="firstName" required placeholder="Max">
+              <label class="form-label" for="firstName" data-i18n="form.firstName">Vorname</label>
+              <input class="form-input" type="text" id="firstName" name="firstName" required data-i18n-placeholder="form.firstName_placeholder" placeholder="Max">
             </div>
             <div class="form-group">
-              <label class="form-label" for="lastName">Nachname</label>
-              <input class="form-input" type="text" id="lastName" name="lastName" required placeholder="Mustermann">
+              <label class="form-label" for="lastName" data-i18n="form.lastName">Nachname</label>
+              <input class="form-input" type="text" id="lastName" name="lastName" required data-i18n-placeholder="form.lastName_placeholder" placeholder="Mustermann">
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label" for="email">E-Mail</label>
-            <input class="form-input" type="email" id="email" name="email" required placeholder="max@unternehmen.de">
+            <label class="form-label" for="email" data-i18n="form.email">E-Mail</label>
+            <input class="form-input" type="email" id="email" name="email" required data-i18n-placeholder="form.email_placeholder" placeholder="max@unternehmen.de">
           </div>
           <div class="form-group">
-            <label class="form-label" for="company">Unternehmen</label>
-            <input class="form-input" type="text" id="company" name="company" placeholder="Unternehmen GmbH">
+            <label class="form-label" for="company" data-i18n="form.company">Unternehmen</label>
+            <input class="form-input" type="text" id="company" name="company" data-i18n-placeholder="form.company_placeholder" placeholder="Unternehmen GmbH">
           </div>
           <div class="form-group">
-            <label class="form-label" for="message">Nachricht</label>
-            <textarea class="form-input form-textarea" id="message" name="message" rows="4" placeholder="Wie können wir Ihnen helfen?"></textarea>
+            <label class="form-label" for="message" data-i18n="form.message">Nachricht</label>
+            <textarea class="form-input form-textarea" id="message" name="message" rows="4" data-i18n-placeholder="form.message_placeholder" placeholder="Wie können wir Ihnen helfen?"></textarea>
           </div>
           <button type="submit" class="btn btn--primary btn--full">
-            Nachricht senden
+            <span data-i18n="form.submit">Nachricht senden</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </form>
@@ -87,8 +87,8 @@
           <div class="lightbox__success-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/><path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h3 class="lightbox__success-title">Vielen Dank!</h3>
-          <p class="lightbox__success-text">Wir haben Ihre Nachricht erhalten und melden uns zeitnah bei Ihnen.</p>
+          <h3 class="lightbox__success-title" data-i18n="form.success_title">Vielen Dank!</h3>
+          <p class="lightbox__success-text" data-i18n="form.success_text">Wir haben Ihre Nachricht erhalten und melden uns zeitnah bei Ihnen.</p>
         </div>
       </div>
     </div>
@@ -100,24 +100,34 @@
         <img src="assets/images/logo-black.png" alt="Bergmann & Co." class="nav__logo-img">
       </a>
       <div class="nav__links" id="navLinks">
-        <a href="#services" class="nav__link">Dienstleistungen</a>
-        <a href="#process" class="nav__link">Kundenprozess</a>
-        <a href="#industries" class="nav__link">Branchen</a>
-        <button class="nav__link nav__link--cta js-open-lightbox">Kontakt</button>
+        <a href="#services" class="nav__link" data-i18n="nav.services">Dienstleistungen</a>
+        <a href="#process" class="nav__link" data-i18n="nav.process">Kundenprozess</a>
+        <a href="#industries" class="nav__link" data-i18n="nav.industries">Branchen</a>
+        <button class="nav__link nav__link--cta js-open-lightbox" data-i18n="nav.contact">Kontakt</button>
+        <div class="lang-switch">
+          <button class="lang-switch__btn is-active" data-lang="de">DE</button>
+          <button class="lang-switch__btn" data-lang="en">EN</button>
+        </div>
       </div>
-      <button class="nav__burger" id="navBurger" aria-label="Menü öffnen">
-        <span></span>
-        <span></span>
-      </button>
+      <div class="nav__right-mobile">
+        <div class="lang-switch lang-switch--mobile">
+          <button class="lang-switch__btn is-active" data-lang="de">DE</button>
+          <button class="lang-switch__btn" data-lang="en">EN</button>
+        </div>
+        <button class="nav__burger" id="navBurger" data-i18n-aria="nav.burger_label" aria-label="Menü öffnen">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu__inner">
-      <a href="#services" class="mobile-menu__link">Dienstleistungen</a>
-      <a href="#process" class="mobile-menu__link">Kundenprozess</a>
-      <a href="#industries" class="mobile-menu__link">Branchen</a>
-      <button class="mobile-menu__link js-open-lightbox">Kontakt</button>
+      <a href="#services" class="mobile-menu__link" data-i18n="nav.services">Dienstleistungen</a>
+      <a href="#process" class="mobile-menu__link" data-i18n="nav.process">Kundenprozess</a>
+      <a href="#industries" class="mobile-menu__link" data-i18n="nav.industries">Branchen</a>
+      <button class="mobile-menu__link js-open-lightbox" data-i18n="nav.contact">Kontakt</button>
     </div>
   </div>
 
@@ -131,22 +141,22 @@
       <div class="hero__particles" id="heroParticles"></div>
     </div>
     <div class="hero__container">
-      <div class="hero__badge anim-fade-up">
+      <div class="hero__badge anim-fade-up" data-i18n="hero.badge">
         Innovative Kapital- & Finanzierungslösungen
       </div>
       <h1 class="hero__title anim-fade-up" data-delay="0.1">
-        Financial Solutions<br>
-        <span class="hero__title-accent">for Scaling Businesses</span>
+        <span data-i18n="hero.title_line1">Financial Solutions</span><br>
+        <span class="hero__title-accent" data-i18n="hero.title_line2">for Scaling Businesses</span>
       </h1>
-      <p class="hero__subtitle anim-fade-up" data-delay="0.2">
+      <p class="hero__subtitle anim-fade-up" data-delay="0.2" data-i18n="hero.subtitle">
         Mit einem tiefen Verständnis der komplexen Dynamiken des Kapitalmarktes bieten wir unseren Kunden innovative Ansätze zur Kapitalbeschaffung, Refinanzierung und zur Optimierung ihrer Kapitalstruktur.
       </p>
       <div class="hero__actions anim-fade-up" data-delay="0.3">
         <button class="btn btn--primary js-open-lightbox">
-          Kontakt aufnehmen
+          <span data-i18n="hero.cta_contact">Kontakt aufnehmen</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <a href="#services" class="btn btn--ghost">Mehr erfahren</a>
+        <a href="#services" class="btn btn--ghost" data-i18n="hero.cta_learn">Mehr erfahren</a>
       </div>
       <div class="hero__stats anim-fade-up" data-delay="0.5" style="display:none"></div>
     </div>
@@ -158,13 +168,12 @@
   <section class="features" id="features">
     <div class="features__container">
       <div class="features__header anim-fade-up">
-        <span class="section-tag">Capital Solutions</span>
-        <h2 class="section-title">Kapitalmarkt-Expertise<br>für Ihr Wachstum</h2>
+        <span class="section-tag" data-i18n="features.tag">Capital Solutions</span>
+        <h2 class="section-title" data-i18n="features.title">Kapitalmarkt-Expertise<br>für Ihr Wachstum</h2>
       </div>
       <div class="features__grid">
         <div class="feature-card anim-fade-up" data-delay="0">
           <div class="feature-card__anim">
-            
             <svg class="anim-icon" viewBox="0 0 64 64" fill="none">
               <circle class="fi-source" cx="32" cy="52" r="3" fill="currentColor" opacity="0.25"/>
               <path class="fi-path fi-path--1" d="M32 49 L32 32 L18 14" stroke="currentColor" stroke-width="1.2" opacity="0.2" fill="none" stroke-linecap="round"/>
@@ -175,12 +184,11 @@
               <circle class="fi-end fi-end--3" cx="46" cy="14" r="2.5" fill="currentColor" opacity="0.15"/>
             </svg>
           </div>
-          <h3 class="feature-card__title">Alternativen zu traditionellen Finanzierungen</h3>
-          <p class="feature-card__text">Die Landschaft des Kapitalmarkts erlebt eine Verschiebung hin zu alternativen Finanzierungsquellen. Entdecken Sie neue Wege abseits herkömmlicher Bankdarlehen.</p>
+          <h3 class="feature-card__title" data-i18n="features.card1_title">Alternativen zu traditionellen Finanzierungen</h3>
+          <p class="feature-card__text" data-i18n="features.card1_text">Die Landschaft des Kapitalmarkts erlebt eine Verschiebung hin zu alternativen Finanzierungsquellen. Entdecken Sie neue Wege abseits herkömmlicher Bankdarlehen.</p>
         </div>
         <div class="feature-card anim-fade-up" data-delay="0.1">
           <div class="feature-card__anim">
-            
             <svg class="anim-icon" viewBox="0 0 64 64" fill="none">
               <rect class="fi-tile fi-tile--1" x="6" y="6" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.2" opacity="0.12" fill="currentColor" fill-opacity="0.03"/>
               <rect class="fi-tile fi-tile--2" x="28" y="6" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.2" opacity="0.12" fill="currentColor" fill-opacity="0.03"/>
@@ -192,12 +200,11 @@
               <line class="fi-conn fi-conn--3" x1="37" y1="24" x2="37" y2="28" stroke="currentColor" stroke-width="0.8" opacity="0.1"/>
             </svg>
           </div>
-          <h3 class="feature-card__title">Bedeutung strukturierter Produkte</h3>
-          <p class="feature-card__text">Strukturierte Produkte und festverzinsliche Wertpapiere bieten Anlegern und Emittenten Flexibilität und können auf individuelle Risikopräferenzen zugeschnitten werden.</p>
+          <h3 class="feature-card__title" data-i18n="features.card2_title">Bedeutung strukturierter Produkte</h3>
+          <p class="feature-card__text" data-i18n="features.card2_text">Strukturierte Produkte und festverzinsliche Wertpapiere bieten Anlegern und Emittenten Flexibilität und können auf individuelle Risikopräferenzen zugeschnitten werden.</p>
         </div>
         <div class="feature-card anim-fade-up" data-delay="0.2">
           <div class="feature-card__anim">
-            
             <svg class="anim-icon" viewBox="0 0 64 64" fill="none">
               <path class="fi-decline-bg" d="M8 16 L56 48" stroke="currentColor" stroke-width="0.8" opacity="0.06" fill="none"/>
               <path class="fi-decline" d="M8 16 L56 48" stroke="currentColor" stroke-width="1.5" opacity="0.2" fill="none" stroke-linecap="round"/>
@@ -206,8 +213,8 @@
               <path class="fi-area" d="M8 16 L56 48 L56 54 L8 54 Z" fill="currentColor" opacity="0.02"/>
             </svg>
           </div>
-          <h3 class="feature-card__title">Rückgang bei klassischen Finanzierungen</h3>
-          <p class="feature-card__text">Mit strengeren Regulierungen verlieren traditionelle Bankenfinanzierungen an Attraktivität. Unternehmen suchen effizientere Wege der Kapitalbeschaffung.</p>
+          <h3 class="feature-card__title" data-i18n="features.card3_title">Rückgang bei klassischen Finanzierungen</h3>
+          <p class="feature-card__text" data-i18n="features.card3_text">Mit strengeren Regulierungen verlieren traditionelle Bankenfinanzierungen an Attraktivität. Unternehmen suchen effizientere Wege der Kapitalbeschaffung.</p>
         </div>
       </div>
     </div>
@@ -216,34 +223,34 @@
   <section class="services services--dark" id="services">
     <div class="services__container">
       <div class="services__header anim-fade-up">
-        <span class="section-tag section-tag--light">Unsere Dienstleistungen</span>
-        <h2 class="section-title section-title--light">Expertise über das gesamte<br>Spektrum der Finanzinstrumente</h2>
-        <p class="section-desc section-desc--light">Unsere Expertise umfasst ein breites Spektrum an Finanzinstrumenten, darunter Unternehmensanleihen, syndizierte Kredite und strukturierte Finanzierungen.</p>
+        <span class="section-tag section-tag--light" data-i18n="services.tag">Unsere Dienstleistungen</span>
+        <h2 class="section-title section-title--light" data-i18n="services.title">Expertise über das gesamte<br>Spektrum der Finanzinstrumente</h2>
+        <p class="section-desc section-desc--light" data-i18n="services.desc">Unsere Expertise umfasst ein breites Spektrum an Finanzinstrumenten, darunter Unternehmensanleihen, syndizierte Kredite und strukturierte Finanzierungen.</p>
       </div>
 
       <div class="services__cards">
         <div class="service-card service-card--on-dark anim-fade-up">
           <div class="service-card__glow"><div class="service-card__glow-inner"></div></div>
           <div class="service-card__inner">
-            <div class="service-card__tag">Wachstumskapital</div>
-            <h3 class="service-card__title">Debt Capital Markets</h3>
-            <p class="service-card__text">Prozess der Erstellung und des Verkaufs von festverzinslichen Wertpapieren an Investoren zur Kapitalbeschaffung.</p>
+            <div class="service-card__tag" data-i18n="services.card1_tag">Wachstumskapital</div>
+            <h3 class="service-card__title" data-i18n="services.card1_title">Debt Capital Markets</h3>
+            <p class="service-card__text" data-i18n="services.card1_text">Prozess der Erstellung und des Verkaufs von festverzinslichen Wertpapieren an Investoren zur Kapitalbeschaffung.</p>
             <div class="service-card__features">
               <div class="service-card__feature">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Unternehmensanleihen
+                <span data-i18n="services.card1_f1">Unternehmensanleihen</span>
               </div>
               <div class="service-card__feature">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Festverzinsliche Wertpapiere
+                <span data-i18n="services.card1_f2">Festverzinsliche Wertpapiere</span>
               </div>
               <div class="service-card__feature">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Kapitalstrukturierung
+                <span data-i18n="services.card1_f3">Kapitalstrukturierung</span>
               </div>
             </div>
             <button class="service-card__cta js-open-lightbox">
-              Kontakt
+              <span data-i18n="services.card1_cta">Kontakt</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
           </div>
@@ -252,25 +259,25 @@
         <div class="service-card service-card--on-dark anim-fade-up" data-delay="0.15">
           <div class="service-card__glow"><div class="service-card__glow-inner"></div></div>
           <div class="service-card__inner">
-            <div class="service-card__tag">Mittelstand & Real Estate</div>
-            <h3 class="service-card__title">Leveraged Finance &<br>Loan Solutions</h3>
-            <p class="service-card__text">Unser Team bietet Syndicated Loans, Senior Loans und Mezzanine-Finanzierungen für Unternehmen an, um ihre Finanzierungsbedürfnisse zu decken.</p>
+            <div class="service-card__tag" data-i18n="services.card2_tag">Mittelstand & Real Estate</div>
+            <h3 class="service-card__title" data-i18n="services.card2_title">Leveraged Finance &<br>Loan Solutions</h3>
+            <p class="service-card__text" data-i18n="services.card2_text">Unser Team bietet Syndicated Loans, Senior Loans und Mezzanine-Finanzierungen für Unternehmen an, um ihre Finanzierungsbedürfnisse zu decken.</p>
             <div class="service-card__features">
               <div class="service-card__feature">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Syndicated Loans
+                <span data-i18n="services.card2_f1">Syndicated Loans</span>
               </div>
               <div class="service-card__feature">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Senior & Mezzanine
+                <span data-i18n="services.card2_f2">Senior & Mezzanine</span>
               </div>
               <div class="service-card__feature">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.33 4L6 11.33 2.67 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Immobilienfinanzierung
+                <span data-i18n="services.card2_f3">Immobilienfinanzierung</span>
               </div>
             </div>
             <button class="service-card__cta js-open-lightbox">
-              Kontakt
+              <span data-i18n="services.card2_cta">Kontakt</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
           </div>
@@ -282,8 +289,8 @@
   <section class="process" id="process">
     <div class="process__container">
       <div class="process__header anim-fade-up">
-        <span class="section-tag">Kundenprozess</span>
-        <h2 class="section-title">Starke Partner &<br>ein starkes Netzwerk</h2>
+        <span class="section-tag" data-i18n="process.tag">Kundenprozess</span>
+        <h2 class="section-title" data-i18n="process.title">Starke Partner &<br>ein starkes Netzwerk</h2>
       </div>
       <div class="process__timeline">
         <div class="process__line">
@@ -292,36 +299,36 @@
         <div class="process__step anim-fade-up" data-delay="0">
           <div class="process__step-marker"><span class="process__step-num">01</span></div>
           <div class="process__step-content">
-            <h3 class="process__step-title">Bedarfsanalyse</h3>
-            <p class="process__step-text">Ermittlung Ihrer spezifischen Finanzierungsbedürfnisse und Ziele durch eine tiefgehende Analyse, um maßgeschneiderte Lösungen zu entwickeln.</p>
+            <h3 class="process__step-title" data-i18n="process.step1_title">Bedarfsanalyse</h3>
+            <p class="process__step-text" data-i18n="process.step1_text">Ermittlung Ihrer spezifischen Finanzierungsbedürfnisse und Ziele durch eine tiefgehende Analyse, um maßgeschneiderte Lösungen zu entwickeln.</p>
           </div>
         </div>
         <div class="process__step anim-fade-up" data-delay="0.1">
           <div class="process__step-marker"><span class="process__step-num">02</span></div>
           <div class="process__step-content">
-            <h3 class="process__step-title">Angebot</h3>
-            <p class="process__step-text">Erstellung eines individuellen Angebots basierend auf der Bedarfsanalyse, das die optimalen Finanzierungsoptionen und -strukturen umfasst.</p>
+            <h3 class="process__step-title" data-i18n="process.step2_title">Angebot</h3>
+            <p class="process__step-text" data-i18n="process.step2_text">Erstellung eines individuellen Angebots basierend auf der Bedarfsanalyse, das die optimalen Finanzierungsoptionen und -strukturen umfasst.</p>
           </div>
         </div>
         <div class="process__step anim-fade-up" data-delay="0.2">
           <div class="process__step-marker"><span class="process__step-num">03</span></div>
           <div class="process__step-content">
-            <h3 class="process__step-title">Due Diligence</h3>
-            <p class="process__step-text">Detaillierte Prüfung der finanziellen Situation Ihres Unternehmens, um Risiken zu identifizieren und Transparenz zu schaffen.</p>
+            <h3 class="process__step-title" data-i18n="process.step3_title">Due Diligence</h3>
+            <p class="process__step-text" data-i18n="process.step3_text">Detaillierte Prüfung der finanziellen Situation Ihres Unternehmens, um Risiken zu identifizieren und Transparenz zu schaffen.</p>
           </div>
         </div>
         <div class="process__step anim-fade-up" data-delay="0.3">
           <div class="process__step-marker"><span class="process__step-num">04</span></div>
           <div class="process__step-content">
-            <h3 class="process__step-title">Abwicklung</h3>
-            <p class="process__step-text">Effiziente und strukturierte Durchführung der Transaktion, einschließlich aller notwendigen Prozesse und Schritte.</p>
+            <h3 class="process__step-title" data-i18n="process.step4_title">Abwicklung</h3>
+            <p class="process__step-text" data-i18n="process.step4_text">Effiziente und strukturierte Durchführung der Transaktion, einschließlich aller notwendigen Prozesse und Schritte.</p>
           </div>
         </div>
         <div class="process__step anim-fade-up" data-delay="0.4">
           <div class="process__step-marker"><span class="process__step-num">05</span></div>
           <div class="process__step-content">
-            <h3 class="process__step-title">Folgegeschäft</h3>
-            <p class="process__step-text">Nach erfolgreichem Abschluss, Identifikation weiterer Wachstums- und Optimierungspotenziale für zukünftige Geschäftsmöglichkeiten.</p>
+            <h3 class="process__step-title" data-i18n="process.step5_title">Folgegeschäft</h3>
+            <p class="process__step-text" data-i18n="process.step5_text">Nach erfolgreichem Abschluss, Identifikation weiterer Wachstums- und Optimierungspotenziale für zukünftige Geschäftsmöglichkeiten.</p>
           </div>
         </div>
       </div>
@@ -331,12 +338,12 @@
   <section class="industries" id="industries">
     <div class="industries__container">
       <div class="industries__header anim-fade-up">
-        <span class="section-tag">Branchenfokus</span>
-        <h2 class="section-title">Maßgeschneiderte Kapitalstrategien<br>für Ihre Branche</h2>
-        <p class="section-desc">Von der dynamischen Immobilienbranche über den lebhaften Mittelstand bis hin zu anspruchsvollen Hochverzinslichen Anleihen.</p>
+        <span class="section-tag" data-i18n="industries.tag">Branchenfokus</span>
+        <h2 class="section-title" data-i18n="industries.title">Maßgeschneiderte Kapitalstrategien<br>für Ihre Branche</h2>
+        <p class="section-desc" data-i18n="industries.desc">Von der dynamischen Immobilienbranche über den lebhaften Mittelstand bis hin zu anspruchsvollen Hochverzinslichen Anleihen.</p>
       </div>
       <div class="industries__grid">
-        
+
         <div class="industry-card anim-fade-up" data-delay="0">
           <div class="industry-card__anim-wrap">
             <svg class="industry-anim" viewBox="0 0 100 80" fill="none">
@@ -349,10 +356,10 @@
               <circle class="ind-grow-dot" cx="74" cy="12" r="2.5" fill="currentColor" opacity="0"/>
             </svg>
           </div>
-          <h3 class="industry-card__title">Mittelstand</h3>
-          <p class="industry-card__text">Kapitalbeschaffungs- und Liquiditätslösungen für mittelständische Unternehmen zur Förderung ihres Wachstums.</p>
+          <h3 class="industry-card__title" data-i18n="industries.card1_title">Mittelstand</h3>
+          <p class="industry-card__text" data-i18n="industries.card1_text">Kapitalbeschaffungs- und Liquiditätslösungen für mittelständische Unternehmen zur Förderung ihres Wachstums.</p>
         </div>
-        
+
         <div class="industry-card anim-fade-up" data-delay="0.1">
           <div class="industry-card__anim-wrap">
             <svg class="industry-anim" viewBox="0 0 100 80" fill="none">
@@ -361,7 +368,7 @@
               <rect class="ind-bld ind-bld--2" x="36" y="75" width="16" height="0" rx="1.5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.18"/>
               <rect class="ind-bld ind-bld--3" x="56" y="75" width="22" height="0" rx="1.5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.14"/>
               <rect class="ind-bld ind-bld--4" x="82" y="75" width="10" height="0" rx="1.5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.1"/>
-              
+
               <g class="ind-wins">
                 <rect x="16" y="50" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
                 <rect x="24" y="50" width="4" height="4" rx="0.5" fill="currentColor" opacity="0"/>
@@ -378,10 +385,10 @@
               </g>
             </svg>
           </div>
-          <h3 class="industry-card__title">Real Estate</h3>
-          <p class="industry-card__text">Spezialisierung auf komplexe Immobilientransaktionen und -finanzierungen für nachhaltiges Wachstum.</p>
+          <h3 class="industry-card__title" data-i18n="industries.card2_title">Real Estate</h3>
+          <p class="industry-card__text" data-i18n="industries.card2_text">Spezialisierung auf komplexe Immobilientransaktionen und -finanzierungen für nachhaltiges Wachstum.</p>
         </div>
-        
+
         <div class="industry-card anim-fade-up" data-delay="0.2">
           <div class="industry-card__anim-wrap">
             <svg class="industry-anim" viewBox="0 0 100 80" fill="none">
@@ -394,10 +401,10 @@
               <circle class="ind-curve-dot" cx="5" cy="55" r="2.5" fill="currentColor" opacity="0"/>
             </svg>
           </div>
-          <h3 class="industry-card__title">High Yield</h3>
-          <p class="industry-card__text">Fokussierung auf High-Yield-Anleihen und Corporate Bonds als Teil einer strategischen Finanzierungsplanung.</p>
+          <h3 class="industry-card__title" data-i18n="industries.card3_title">High Yield</h3>
+          <p class="industry-card__text" data-i18n="industries.card3_text">Fokussierung auf High-Yield-Anleihen und Corporate Bonds als Teil einer strategischen Finanzierungsplanung.</p>
         </div>
-        
+
         <div class="industry-card anim-fade-up" data-delay="0.3">
           <div class="industry-card__anim-wrap">
             <svg class="industry-anim" viewBox="0 0 100 80" fill="none">
@@ -412,13 +419,13 @@
               <circle class="ind-net-node ind-net-node--2" cx="80" cy="16" r="4.5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.1"/>
               <circle class="ind-net-node ind-net-node--3" cx="20" cy="64" r="4.5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.1"/>
               <circle class="ind-net-node ind-net-node--4" cx="80" cy="64" r="4.5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.1"/>
-              
+
               <circle class="ind-net-pulse ind-net-pulse--1" cx="50" cy="40" r="1.5" fill="currentColor" opacity="0"/>
               <circle class="ind-net-pulse ind-net-pulse--2" cx="50" cy="40" r="1.5" fill="currentColor" opacity="0"/>
             </svg>
           </div>
-          <h3 class="industry-card__title">Emissionen</h3>
-          <p class="industry-card__text">Expertise in der Strukturierung und Platzierung von Fremdemissionen und syndizierten Krediten.</p>
+          <h3 class="industry-card__title" data-i18n="industries.card4_title">Emissionen</h3>
+          <p class="industry-card__text" data-i18n="industries.card4_text">Expertise in der Strukturierung und Platzierung von Fremdemissionen und syndizierten Krediten.</p>
         </div>
       </div>
     </div>
@@ -431,25 +438,25 @@
     <div class="cta-band__container">
       <div class="cta-band__content">
         <div class="cta-band__left anim-fade-up">
-          <h2 class="cta-band__title">Optimieren Sie Ihre Kapitalstruktur</h2>
-          <span class="cta-band__tag">Individuelle Finanzstrategien</span>
-          <p class="cta-band__text">Wir spezialisieren uns auf das intelligente Engineering von Kapitalstrukturen, um Wachstum zu fördern, Wert zu schaffen und nachhaltige Erfolge zu sichern.</p>
+          <h2 class="cta-band__title" data-i18n="cta.title">Optimieren Sie Ihre Kapitalstruktur</h2>
+          <span class="cta-band__tag" data-i18n="cta.tag">Individuelle Finanzstrategien</span>
+          <p class="cta-band__text" data-i18n="cta.text">Wir spezialisieren uns auf das intelligente Engineering von Kapitalstrukturen, um Wachstum zu fördern, Wert zu schaffen und nachhaltige Erfolge zu sichern.</p>
         </div>
         <div class="cta-band__form-wrap anim-fade-up" data-delay="0.15">
           <form class="cta-form" id="ctaForm">
             <div class="form-row">
               <div class="form-group">
-                <input class="form-input form-input--dark" type="text" name="ctaName" required placeholder="Ihr Name">
+                <input class="form-input form-input--dark" type="text" name="ctaName" required data-i18n-placeholder="cta.name_placeholder" placeholder="Ihr Name">
               </div>
               <div class="form-group">
-                <input class="form-input form-input--dark" type="email" name="ctaEmail" required placeholder="Ihre E-Mail">
+                <input class="form-input form-input--dark" type="email" name="ctaEmail" required data-i18n-placeholder="cta.email_placeholder" placeholder="Ihre E-Mail">
               </div>
             </div>
             <div class="form-group">
-              <textarea class="form-input form-input--dark form-textarea form-textarea--sm" name="ctaMessage" rows="3" placeholder="Wie können wir Ihnen helfen?"></textarea>
+              <textarea class="form-input form-input--dark form-textarea form-textarea--sm" name="ctaMessage" rows="3" data-i18n-placeholder="cta.message_placeholder" placeholder="Wie können wir Ihnen helfen?"></textarea>
             </div>
             <button type="submit" class="btn btn--white btn--full">
-              Nachricht senden
+              <span data-i18n="cta.submit">Nachricht senden</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
           </form>
@@ -463,39 +470,40 @@
       <div class="footer__top">
         <div class="footer__brand">
           <img src="assets/images/logo-black.png" alt="Bergmann & Co." class="footer__logo">
-          <p class="footer__desc">Innovative Capital & Financing Solutions. Wir unterstützen Unternehmen bei der Strukturierung, Beschaffung und Optimierung von Kapital.</p>
+          <p class="footer__desc" data-i18n="footer.desc">Innovative Capital & Financing Solutions. Wir unterstützen Unternehmen bei der Strukturierung, Beschaffung und Optimierung von Kapital.</p>
         </div>
         <div class="footer__nav">
           <div class="footer__col">
-            <h4 class="footer__col-title">Navigation</h4>
-            <a href="#" class="footer__link">Home</a>
-            <a href="#services" class="footer__link">Dienstleistungen</a>
-            <a href="#process" class="footer__link">Kundenprozess</a>
-            <a href="#industries" class="footer__link">Branchen</a>
+            <h4 class="footer__col-title" data-i18n="footer.nav_title">Navigation</h4>
+            <a href="#" class="footer__link" data-i18n="footer.home">Home</a>
+            <a href="#services" class="footer__link" data-i18n="footer.services">Dienstleistungen</a>
+            <a href="#process" class="footer__link" data-i18n="footer.process">Kundenprozess</a>
+            <a href="#industries" class="footer__link" data-i18n="footer.industries">Branchen</a>
           </div>
           <div class="footer__col">
-            <h4 class="footer__col-title">Rechtliches</h4>
-            <a href="/impressum" class="footer__link">Impressum</a>
-            <a href="/datenschutz" class="footer__link">Datenschutz</a>
-            <button class="footer__link js-open-lightbox">Kontakt</button>
+            <h4 class="footer__col-title" data-i18n="footer.legal_title">Rechtliches</h4>
+            <a href="/impressum" class="footer__link" data-i18n="footer.impressum">Impressum</a>
+            <a href="/datenschutz" class="footer__link" data-i18n="footer.datenschutz">Datenschutz</a>
+            <button class="footer__link js-open-lightbox" data-i18n="footer.contact">Kontakt</button>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
-        <span class="footer__copy">&copy; 2026 Bergmann & Co. Alle Rechte vorbehalten.</span>
+        <span class="footer__copy" data-i18n="footer.copy">&copy; 2026 Bergmann & Co. Alle Rechte vorbehalten.</span>
         <a href="mailto:info@bergmann-co.com" class="footer__email">info@bergmann-co.com</a>
       </div>
     </div>
   </footer>
 
+  <script src="assets/js/lang.js"></script>
   <script src="assets/js/main.js"></script>
-  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie-Einstellungen">
+  <div class="cookie-banner" id="cookieBanner" role="region" data-i18n-aria="cookie.modal_title" aria-label="Cookie-Einstellungen">
     <div class="cookie-banner__inner">
-      <p class="cookie-banner__text">Wir verwenden Cookies, um die Website zu betreiben, die Nutzung zu analysieren und relevante Inhalte bereitzustellen. Weitere Informationen finden Sie in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+      <p class="cookie-banner__text" data-i18n="cookie.banner_text">Wir verwenden Cookies, um die Website zu betreiben, die Nutzung zu analysieren und relevante Inhalte bereitzustellen. Weitere Informationen finden Sie in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
       <div class="cookie-banner__actions">
-        <button class="ck-btn ck-btn--accept" id="cookieAcceptAll">Alle akzeptieren</button>
-        <button class="ck-btn ck-btn--deny" id="cookieDeny">Ablehnen</button>
-        <button class="ck-btn ck-btn--text" id="cookieSettings">Einstellungen</button>
+        <button class="ck-btn ck-btn--accept" id="cookieAcceptAll" data-i18n="cookie.accept_all">Alle akzeptieren</button>
+        <button class="ck-btn ck-btn--deny" id="cookieDeny" data-i18n="cookie.deny">Ablehnen</button>
+        <button class="ck-btn ck-btn--text" id="cookieSettings" data-i18n="cookie.settings">Einstellungen</button>
       </div>
     </div>
   </div>
@@ -503,42 +511,42 @@
   <div class="cookie-modal" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
     <div class="cookie-modal__backdrop" id="cookieModalBackdrop"></div>
     <div class="cookie-modal__card">
-      <button class="cookie-modal__close" id="cookieModalClose" aria-label="Schließen">
+      <button class="cookie-modal__close" id="cookieModalClose" data-i18n-aria="lightbox.close" aria-label="Schließen">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </button>
-      <h2 class="cookie-modal__title" id="cookieModalTitle">Cookie-Einstellungen</h2>
-      <p class="cookie-modal__desc">Wählen Sie, welche Cookies Sie zulassen möchten. Notwendige Cookies sind immer aktiv, da sie für den Betrieb der Website erforderlich sind. Weitere Informationen in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+      <h2 class="cookie-modal__title" id="cookieModalTitle" data-i18n="cookie.modal_title">Cookie-Einstellungen</h2>
+      <p class="cookie-modal__desc" data-i18n="cookie.modal_desc">Wählen Sie, welche Cookies Sie zulassen möchten. Notwendige Cookies sind immer aktiv, da sie für den Betrieb der Website erforderlich sind. Weitere Informationen in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
       <div class="cookie-category">
         <div class="cookie-category__header">
-          <span class="cookie-category__name">Notwendig</span>
-          <span class="cookie-category__always">Immer aktiv</span>
+          <span class="cookie-category__name" data-i18n="cookie.necessary">Notwendig</span>
+          <span class="cookie-category__always" data-i18n="cookie.always_active">Immer aktiv</span>
         </div>
-        <p class="cookie-category__desc">Diese Cookies sind für das ordnungsgemäße Funktionieren der Website erforderlich und können nicht deaktiviert werden.</p>
+        <p class="cookie-category__desc" data-i18n="cookie.necessary_desc">Diese Cookies sind für das ordnungsgemäße Funktionieren der Website erforderlich und können nicht deaktiviert werden.</p>
       </div>
       <div class="cookie-category">
         <div class="cookie-category__header">
-          <span class="cookie-category__name">Analyse</span>
-          <label class="cookie-toggle" aria-label="Analyse-Cookies"><input type="checkbox" id="ck-analytics"><span class="cookie-toggle__track"></span></label>
+          <span class="cookie-category__name" data-i18n="cookie.analytics">Analyse</span>
+          <label class="cookie-toggle" aria-label="Analytics"><input type="checkbox" id="ck-analytics"><span class="cookie-toggle__track"></span></label>
         </div>
-        <p class="cookie-category__desc">Helfen uns zu verstehen, wie Besucher mit der Website interagieren, um die Nutzererfahrung kontinuierlich zu verbessern.</p>
+        <p class="cookie-category__desc" data-i18n="cookie.analytics_desc">Helfen uns zu verstehen, wie Besucher mit der Website interagieren, um die Nutzererfahrung kontinuierlich zu verbessern.</p>
       </div>
       <div class="cookie-category">
         <div class="cookie-category__header">
-          <span class="cookie-category__name">Marketing</span>
-          <label class="cookie-toggle" aria-label="Marketing-Cookies"><input type="checkbox" id="ck-marketing"><span class="cookie-toggle__track"></span></label>
+          <span class="cookie-category__name" data-i18n="cookie.marketing">Marketing</span>
+          <label class="cookie-toggle" aria-label="Marketing"><input type="checkbox" id="ck-marketing"><span class="cookie-toggle__track"></span></label>
         </div>
-        <p class="cookie-category__desc">Werden verwendet, um Ihnen relevante Werbeinhalte basierend auf Ihren Interessen anzuzeigen.</p>
+        <p class="cookie-category__desc" data-i18n="cookie.marketing_desc">Werden verwendet, um Ihnen relevante Werbeinhalte basierend auf Ihren Interessen anzuzeigen.</p>
       </div>
       <div class="cookie-category">
         <div class="cookie-category__header">
-          <span class="cookie-category__name">Personalisierung</span>
-          <label class="cookie-toggle" aria-label="Personalisierungs-Cookies"><input type="checkbox" id="ck-personalization"><span class="cookie-toggle__track"></span></label>
+          <span class="cookie-category__name" data-i18n="cookie.personalization">Personalisierung</span>
+          <label class="cookie-toggle" aria-label="Personalization"><input type="checkbox" id="ck-personalization"><span class="cookie-toggle__track"></span></label>
         </div>
-        <p class="cookie-category__desc">Ermöglichen es der Website, sich an Ihre Präferenzen zu erinnern und ein personalisiertes Erlebnis zu bieten.</p>
+        <p class="cookie-category__desc" data-i18n="cookie.personalization_desc">Ermöglichen es der Website, sich an Ihre Präferenzen zu erinnern und ein personalisiertes Erlebnis zu bieten.</p>
       </div>
       <div class="cookie-modal__actions">
-        <button class="ck-btn ck-btn--dark" id="cookieModalAcceptAll">Alle akzeptieren</button>
-        <button class="ck-btn ck-btn--outline" id="cookieModalSave">Auswahl speichern</button>
+        <button class="ck-btn ck-btn--dark" id="cookieModalAcceptAll" data-i18n="cookie.accept_all">Alle akzeptieren</button>
+        <button class="ck-btn ck-btn--outline" id="cookieModalSave" data-i18n="cookie.save_selection">Auswahl speichern</button>
       </div>
     </div>
   </div>

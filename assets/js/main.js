@@ -139,13 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = contactForm.querySelector('button[type="submit"]');
-    submitBtn.textContent = 'Wird gesendet...';
+    const submitLabel = submitBtn.querySelector('[data-i18n]') || submitBtn;
+    submitLabel.textContent = window.bcLang ? window.bcLang.t('js.sending') : 'Wird gesendet...';
     submitBtn.disabled = true;
 
     const fd = new FormData(contactForm);
     try {
       const result = await submitToWeb3Forms({
-        subject: 'Neue Kontaktanfrage – Bergmann & Co.',
+        subject: window.bcLang ? window.bcLang.t('js.subject_contact') : 'Neue Kontaktanfrage – Bergmann & Co.',
         from_name: `${fd.get('firstName')} ${fd.get('lastName')}`,
         email: fd.get('email'),
         company: fd.get('company') || '–',
@@ -159,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error('failed');
       }
     } catch {
-      submitBtn.textContent = 'Fehler – bitte erneut versuchen';
+      submitLabel.textContent = window.bcLang ? window.bcLang.t('js.error_retry') : 'Fehler – bitte erneut versuchen';
       submitBtn.disabled = false;
     }
   });
@@ -170,22 +171,23 @@ document.addEventListener('DOMContentLoaded', () => {
     ctaForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = ctaForm.querySelector('button[type="submit"]');
-      const originalHTML = submitBtn.innerHTML;
-      submitBtn.textContent = 'Wird gesendet...';
+      const submitLabel = submitBtn.querySelector('[data-i18n]') || submitBtn;
+      const originalText = submitLabel.textContent;
+      submitLabel.textContent = window.bcLang ? window.bcLang.t('js.sending') : 'Wird gesendet...';
       submitBtn.disabled = true;
 
       const fd = new FormData(ctaForm);
       try {
         const result = await submitToWeb3Forms({
-          subject: 'Neue Anfrage (CTA) – Bergmann & Co.',
+          subject: window.bcLang ? window.bcLang.t('js.subject_cta') : 'Neue Anfrage (CTA) – Bergmann & Co.',
           from_name: fd.get('ctaName'),
           email: fd.get('ctaEmail'),
           message: fd.get('ctaMessage') || '–',
         });
         if (result.success) {
-          submitBtn.textContent = 'Gesendet ✓';
+          submitLabel.textContent = window.bcLang ? window.bcLang.t('js.sent') : 'Gesendet ✓';
           setTimeout(() => {
-            submitBtn.innerHTML = originalHTML;
+            submitLabel.textContent = originalText;
             submitBtn.disabled = false;
             ctaForm.reset();
           }, 2500);
@@ -193,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error('failed');
         }
       } catch {
-        submitBtn.textContent = 'Fehler – erneut versuchen';
+        submitLabel.textContent = window.bcLang ? window.bcLang.t('js.error_retry_short') : 'Fehler – erneut versuchen';
         submitBtn.disabled = false;
       }
     });

@@ -157,7 +157,7 @@ cd "$SKILL_DIR" && node run.js /tmp/playwright-test-*.js
 ## Critical Anti-Patterns (Never Do)
 
 - Do not edit anything in `assets/` without bumping the `?v=` query on every HTML reference to it. `vercel.json` serves `/assets/*` as `max-age=31536000, immutable`, so an unversioned edit never reaches anyone who has already opened the page. Currently: `card.css?v=2`, `lang.js?v=3` (`main.css`/`main.js`/`cookies.js` still unstamped; add a stamp the first time you touch them).
-- Do not assume `git push` publishes. Pushing `v2-enhanced-animations` only builds a preview; production is promoted with `vercel deploy --prod --yes` from the local clone. Verify with curl against the live domain afterwards.
+- Do not assume `git push` publishes. Pushing `v2-enhanced-animations` only builds a preview; production is promoted with `vercel deploy --prod --yes` from the local clone, or (when that command is blocked) by promoting the git-built preview: `vercel promote <dpl_id> --yes`. Preview URLs are auth-protected; verify with curl against the live domain afterwards.
 - Do not use `Montserrat`, `Lato`, or `Oswald` fonts — the rebrand uses Space Grotesk + Inter
 - Do not use pure black `#000000` — the brand color is `#262527`
 - Do not add CSS keyframe animations for feature/industry card SVGs — they use GSAP timelines

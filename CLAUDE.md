@@ -52,7 +52,7 @@ cd "$SKILL_DIR" && node run.js /tmp/playwright-test-*.js
 
 | Property | Value |
 |---|---|
-| **Site** | Bergmann & Co. — financial advisory |
+| **Site** | Bergmann & Co. — financial advisory. Legal entity: **Bergmann Capital Advisors GmbH**, Amtsgericht Frankfurt am Main HRB 144252, GF Peter Maximilian Bergmann (register-verified 2026-09-16; was HESTIA Asset Development GmbH / Mannheim HRB 737163) |
 | **Stack** | Pure HTML/CSS/JS — no framework, no build tool |
 | **Hosting** | Vercel (planned) |
 | **GitHub** | `jeffsangeni/bergmann-co-website` |
@@ -156,7 +156,7 @@ cd "$SKILL_DIR" && node run.js /tmp/playwright-test-*.js
 
 ## Critical Anti-Patterns (Never Do)
 
-- Do not edit anything in `assets/` without bumping the `?v=` query on every HTML reference to it. `vercel.json` serves `/assets/*` as `max-age=31536000, immutable`, so an unversioned edit never reaches anyone who has already opened the page. Currently at `?v=2`.
+- Do not edit anything in `assets/` without bumping the `?v=` query on every HTML reference to it. `vercel.json` serves `/assets/*` as `max-age=31536000, immutable`, so an unversioned edit never reaches anyone who has already opened the page. Currently: `card.css?v=2`, `lang.js?v=3` (`main.css`/`main.js`/`cookies.js` still unstamped; add a stamp the first time you touch them).
 - Do not assume `git push` publishes. Pushing `v2-enhanced-animations` only builds a preview; production is promoted with `vercel deploy --prod --yes` from the local clone. Verify with curl against the live domain afterwards.
 - Do not use `Montserrat`, `Lato`, or `Oswald` fonts — the rebrand uses Space Grotesk + Inter
 - Do not use pure black `#000000` — the brand color is `#262527`

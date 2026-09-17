@@ -948,7 +948,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .services__cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   align-items: stretch;
 }
@@ -1497,6 +1497,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 /* ---- RESPONSIVE ---- */
+@media (max-width: 1199px) {
+  .service-card__inner { padding: 40px 28px; }
+}
+
 @media (max-width: 991px) {
   .nav__links { display: none; }
   .nav__burger { display: flex; }

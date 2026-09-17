@@ -933,7 +933,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .services__container {
-  max-width: var(--container-max);
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 var(--container-pad);
 }
@@ -949,7 +949,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .services__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 32px;
   align-items: stretch;
 }
 
